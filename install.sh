@@ -11,3 +11,6 @@ sudo apt install -y flatpak && flatpak remote-add --if-not-exists flathub https:
 
 log "Installing essential packages..."
 sudo apt install -y kitty zsh i3-wm picom polybar rofi feh git gh
+
+log "Changing shell..."
+chsh -s $(which zsh)
