@@ -15,7 +15,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -141,10 +141,9 @@ gaps inner 4
 # startup launchers
 exec --no-startup-id picom
 exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120.00
-exec_always --no-startup-id killall polybar; polybar bar 
+exec_always --no-startup-id pkill polybar; polybar bar 
 exec_always --no-startup-id feh --bg-scale ~/Imagens/wallpapers/snowycat.png
 exec --no-startup-id redshift -l 26.3364:49.9064 -t 5500:3500
-exec --no-startup-id pkill nm-applet
 
 # start rofi menus 
 bindsym $mod+apostrophe exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
