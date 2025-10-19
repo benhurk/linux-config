@@ -9,6 +9,12 @@ if [ ! -d "$HOME/linux-config" ]; then
   git clone https://github.com/benhurk/linux-config.git "$HOME/linux-config"
 fi
 
+mkdir -p ~/.config
+mkdir -p ~/.local/share/fonts
+mkdir -p ~/.local/share/icons
+mkdir -p ~/.icons
+mkdir -p ~/Imagens/wallpapers
+
 link() {
   src="$1"
   dest="$2"
