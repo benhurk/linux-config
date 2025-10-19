@@ -17,26 +17,10 @@ sudo apt install -y \
   fonts-dejavu fonts-noto-color-emoji
 
 sudo systemctl enable NetworkManager
-sudo systemctl start NetworkManager
 sudo systemctl enable bluetooth
-sudo systemctl start bluetooth
 sudo systemctl enable lightdm
 
-log "Cloning and linking config files..."
-if [ ! -d "$HOME/linux-config" ]; then
-  git clone https://github.com/benhurk/linux-config.git "$HOME/linux-config"
-fi
-
-mkdir -p ~/.config/{i3,picom,polybar,rofi,kitty}
-
-ln -sf ~/linux-config/config/i3/config ~/.config/i3/config
-ln -sf ~/linux-config/config/picom/picom.conf ~/.config/picom/picom.conf
-ln -sf ~/linux-config/config/polybar/config.ini ~/.config/polybar/config.ini
-ln -sf ~/linux-config/config/rofi ~/.config/rofi
-ln -sf ~/linux-config/config/kitty ~/.config/kitty
-ln -sf ~/linux-config/config/.zshrc ~/.zshrc
-
 log "Changing shell..."
-chsh -s $(which zsh)
+sudo chsh -s "$(which zsh)" "$USER"
 
-log "Finished! Reboot required."
+log "Done! Run 'sudo reboot' to restart."
