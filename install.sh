@@ -10,8 +10,8 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 
 log "Installing essential packages..."
 sudo apt install -y \
-  xorg xinit mesa-utils mesa-vulkan-drivers vulkan-tools alsa-utils pulseaudio pipewire \
-  network-manager nmcli bluez \
+  xorg xinit mesa-utils mesa-vulkan-drivers vulkan-tools alsa-utils pipewire \
+  network-manager bluez \
   build-essential vim curl git gh unzip \
   kitty zsh i3-wm picom polybar rofi feh lightdm slick-greeter \
   fonts-dejavu fonts-noto-color-emoji
