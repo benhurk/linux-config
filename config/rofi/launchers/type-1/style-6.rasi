@@ -9,13 +9,13 @@
 
 /*****----- Configuration -----*****/
 configuration {
-	modi:                       "drun,window,filebrowser,run";
+	modi:                       "drun,filebrowser,window";
     show-icons:                 true;
     display-drun:               " Apps";
-    display-window:             " Windows";
+    display-window:             " Janelas";
         drun-display-format:        "{name}";
         window-format:              "{w} · {c} · {t}";
-    display-filebrowser:        " Files";
+    display-filebrowser:        " Arquivos";
     display-run:                " Run";
 }
 
@@ -36,7 +36,7 @@ configuration {
     active-background:           var(active);
     active-foreground:           var(background);
     selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
+    selected-normal-foreground:  var(background-alt);
     selected-urgent-background:  var(active);
     selected-urgent-foreground:  var(background);
     selected-active-background:  var(urgent);
@@ -64,8 +64,8 @@ window {
     enabled:                     true;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px solid;
-    border-radius:               10px;
+    border:                      1px solid;
+    border-radius:               0px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
@@ -126,7 +126,7 @@ entry {
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "Procurar...";
     placeholder-color:           inherit;
 }
 num-filtered-rows {
@@ -191,14 +191,14 @@ element {
     margin:                      0px;
     padding:                     10px;
     border:                      0px solid;
-    border-radius:               8px;
+    border-radius:               100%;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            var(normal-background);
+    background-color:            transparent;
     text-color:                  var(normal-foreground);
 }
 element normal.urgent {
@@ -222,7 +222,7 @@ element selected.active {
     text-color:                  var(selected-active-foreground);
 }
 element alternate.normal {
-    background-color:            var(alternate-normal-background);
+    background-color:            transparent;
     text-color:                  var(alternate-normal-foreground);
 }
 element alternate.urgent {
@@ -264,9 +264,9 @@ mode-switcher{
 button {
     padding:                     12px;
     border:                      0px solid;
-    border-radius:               8px;
+    border-radius:               100%;
     border-color:                @border-colour;
-    background-color:            @alternate-background;
+    background-color:            transparent;
     text-color:                  inherit;
     cursor:                      pointer;
 }
