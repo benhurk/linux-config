@@ -13,12 +13,17 @@ sudo apt install -y \
   xorg xinit mesa-utils mesa-vulkan-drivers vulkan-tools alsa-utils pipewire \
   network-manager bluez \
   build-essential vim curl git gh unzip \
-  kitty zsh i3-wm picom polybar rofi feh lightdm slick-greeter \
-  fonts-dejavu fonts-noto-color-emoji
+  kitty zsh i3-wm picom polybar rofi feh lightdm slick-greeter
 
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 sudo systemctl enable lightdm
+
+log "Installing fonts..."
+rm -rf ~/.local/share/fonts
+ln -sf ~/linux-config/fonts ~/.local/share/fonts
+sudo apt install -y fonts-dejavu fonts-noto-color-emoji
+fc-cache -vf
 
 log "Changing shell..."
 sudo chsh -s "$(which zsh)" "$USER"
