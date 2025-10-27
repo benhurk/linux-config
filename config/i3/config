@@ -146,8 +146,8 @@ exec_always --no-startup-id feh --bg-scale ~/Imagens/wallpapers/snowycat.png
 exec --no-startup-id redshift -l 26.3364:49.9064 -t 5500:3500
 
 # start rofi menus 
-bindsym $mod+slash exec --no-startup-id ~/.config/rofi/launchers/type-1/launcher.sh
-bindsym $mod+Escape exec --no-startup-id ~/.config/rofi/powermenu/type-1/powermenu.sh
+bindsym $mod+slash exec --no-startup-id ~/.config/rofi/launcher/launcher.sh
+bindsym $mod+Escape exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
 
 # app keybindings
 bindsym $mod+e exec "nemo"
