@@ -14,7 +14,6 @@ link() {
 }
 
 log "Linking theme directories and files..."
-
 link ~/linux-config/themes/mouse-cursors ~/.icons
 link ~/linux-config/themes/icons ~/.local/share/icons
 link ~/linux-config/themes/wallpapers ~/Imagens/wallpapers

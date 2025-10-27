@@ -15,10 +15,6 @@ link() {
 
 log "Linking config files..."
 
-if [ ! -d "$HOME/linux-config" ]; then
-  git clone https://github.com/benhurk/linux-config.git "$HOME/linux-config"
-fi
-
 link ~/linux-config/config/i3 ~/.config/i3
 link ~/linux-config/config/picom ~/.config/picom
 link ~/linux-config/config/polybar ~/.config/polybar
