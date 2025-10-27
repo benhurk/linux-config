@@ -117,7 +117,7 @@ alias wifi-on='nmcli radio wifi on'
 alias wifi-off='nmcli radio wifi off'
 alias wifi-s='nmcli connection show'
 
-alias update='sudo apt update && sudo apt upgrade && flatpak update && pkill mintUpdate'
+alias update='sudo apt update && sudo apt upgrade -y && flatpak update -y'
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
