@@ -2,5 +2,8 @@
 
 apt_updates=$(apt list --upgradable 2>/dev/null | grep -c upgradable)
 flatpak_updates=$(flatpak remote-ls --updates 2>/dev/null | wc -l)
+total=$((apt_updates + flatpak_updates))
 
-echo $((apt_updates + flatpak_updates))
+if [ $total -gt 0 ]; then
+  echo "$total"
+fi
