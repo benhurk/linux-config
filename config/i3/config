@@ -157,3 +157,6 @@ bindsym $mod+m exec "kitty -e btop"
 
 # toggle status bar
 bindsym $mod+apostrophe exec "polybar-msg cmd toggle"
+
+# open windows with special rules
+for_window [class="Blueman-manager" instance="blueman"] floating enable, resize set 800 px 600 px, move position center
