@@ -52,7 +52,7 @@ configuration {
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
-    transparency:                "real";
+    transparency:                "true";
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
@@ -65,7 +65,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      2px solid;
-    border-radius:               8px;
+    border-radius:               6px;
     border-color:                @border-colour;
     cursor:                      "default";
     /* Backgroud Colors */
