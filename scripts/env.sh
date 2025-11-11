@@ -1,0 +1,2 @@
+export REDSHIFT_TEMP="3500K"
+export DEFAULT_TEMP="6500K"
