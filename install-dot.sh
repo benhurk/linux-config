@@ -13,7 +13,7 @@ link() {
   log "Linked $dest → $src"
 }
 
-log "Linking config files..."
+log "Linking config files and scripts..."
 
 link ~/linux-config/config/i3 ~/.config/i3
 link ~/linux-config/config/picom ~/.config/picom
@@ -21,5 +21,6 @@ link ~/linux-config/config/polybar ~/.config/polybar
 link ~/linux-config/config/rofi ~/.config/rofi
 link ~/linux-config/config/kitty ~/.config/kitty
 link ~/linux-config/config/.zshrc ~/.zshrc
+link ~/linux-config/scripts ~/scripts
 
 log "Done! Restart i3 with Super + Shift + R and reopen applications."

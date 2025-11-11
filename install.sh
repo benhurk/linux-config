@@ -8,12 +8,12 @@ log "Enabling flatpak..."
 sudo apt install -y flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-log "Installing essential packages..."
+log "Installing essentials..."
 sudo apt install -y \
   xorg xinit mesa-utils mesa-vulkan-drivers vulkan-tools alsa-utils pipewire \
   network-manager bluez \
-  build-essential vim curl git gh unzip pipx imagemagick \
-  kitty zsh i3-wm picom polybar rofi feh lightdm slick-greeter dunst
+  zsh build-essential vim curl git gh unzip pipx \
+  kitty i3-wm picom polybar rofi feh lightdm slick-greeter dunst redshift
 
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
