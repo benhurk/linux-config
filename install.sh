@@ -8,24 +8,26 @@ log "Enabling flatpak..."
 sudo apt install -y flatpak
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-log "Installing essentials..."
+log "Installing core..."
 sudo apt install -y \
-  xorg xinit mesa-utils mesa-vulkan-drivers vulkan-tools alsa-utils pipewire \
-  network-manager bluez \
-  zsh build-essential vim curl git gh unzip pipx \
-  kitty i3-wm picom polybar rofi feh lightdm slick-greeter dunst redshift
+  xorg xinput mesa-utils \
+  network-manager bluez pipewire-audio libnotify-bin \
+  zsh build-essential curl git gh unzip pipx fastfetch \
+  kitty i3-wm picom polybar rofi feh lightdm slick-greeter dunst xsct
+
+echo "Installing Neovim (AppImage)..."
+curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
+chmod u+x nvim-linux-x86_64.appimage
+sudo mkdir -p /opt/nvim
+sudo mv nvim-linux-x86_64.appimage /opt/nvim/nvim
+echo "export PATH="$PATH:/opt/nvim/"" >>~/.zshrc
+echo "export PATH="$PATH:/opt/nvim/"" >>~/.bashrc
 
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 sudo systemctl enable lightdm
 
-log "Installing fonts..."
-rm -rf ~/.local/share/fonts
-ln -sf ~/linux-config/fonts ~/.local/share/fonts
-sudo apt install -y fonts-dejavu fonts-noto-color-emoji
-fc-cache -vf
-
 log "Changing shell..."
-sudo chsh -s "$(which zsh)" "$USER"
+chsh -s /usr/bin/zsh
 
 log "Done! Run 'sudo reboot' to restart."
