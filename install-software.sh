@@ -1,16 +1,13 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 sudo apt install -y \
   pavucontrol blueman lxappearance btop \
-  vlc mpv steam
+  vlc mpv qbittorrent steam
 
 flatpak install -y \
   app.zen_browser.zen \
   com.heroicgameslauncher.hgl \
-  org.gimp.GIMP \
   com.github.tchx84.Flatseal \
-  com.bitwarden.desktop \
-  org.qbittorrent.qBittorrent
+  com.bitwarden.desktop
 
-echo "nvm (Install script from GitHub)"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+nix-env -iA nixpkgs.neovim
