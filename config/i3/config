@@ -162,7 +162,7 @@ bindsym Print exec "flameshot full"
 # toggle & increase/decrease keybindings
 bindsym $mod+apostrophe exec --no-startup-id "polybar-msg cmd toggle"
 bindsym $mod+Shift+apostrophe exec --no-startup-id "polybar-msg cmd restart"
-bindsym $mod+Shift+b exec --no-startup-id "~/scripts/polybar/bluetooth.sh toggle"
+bindsym $mod+Shift+b exec --no-startup-id "~/scripts/toggle_bluetooth.sh"
 bindsym $mod+Shift+n exec --no-startup-id "~/scripts/night_light_toggle.sh"
 bindsym $mod+Shift+equal exec --no-startup-id "~/scripts/brightness.sh increase"
 bindsym $mod+Shift+minus exec --no-startup-id "~/scripts/brightness.sh decrease"

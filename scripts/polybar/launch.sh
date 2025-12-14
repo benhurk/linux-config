@@ -12,4 +12,4 @@ export COLOR_ACTIVE=$COLOR_ACTIVE
 export COLOR_ALERT=$COLOR_ALERT
 
 pkill polybar
-polybar bar
+polybar bar &
