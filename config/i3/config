@@ -141,27 +141,42 @@ for_window [class="^.*"] border pixel 2
 gaps inner 4
 
 # startup
-exec --no-startup-id picom
-exec --no-startup-id xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120.00
+exec --no-startup-id "picom"
+exec --no-startup-id "xrandr --output HDMI-A-0 --mode 1920x1080 --rate 120.00"
 exec_always --no-startup-id "~/scripts/polybar/launch.sh" 
-exec_always --no-startup-id feh --bg-fill ~/Imagens/wallpapers/bluegirl.jpg
+exec_always --no-startup-id "feh --bg-fill ~/Imagens/wallpapers/bluegirl.jpg"
 
 # start rofi menus 
-bindsym $mod+slash exec --no-startup-id ~/.config/rofi/launcher/launcher.sh
-bindsym $mod+Escape exec --no-startup-id ~/.config/rofi/powermenu/powermenu.sh
+bindsym $mod+slash exec --no-startup-id "~/.config/rofi/launcher/launcher.sh"
+bindsym $mod+Escape exec --no-startup-id "~/.config/rofi/powermenu/powermenu.sh"
 
-# app keybindings
+# launch keybindings
 bindsym $mod+e exec "nemo"
 bindsym $mod+w exec "flatpak run app.zen_browser.zen"
-bindsym $mod+n exec "kitty -e nvim"
 bindsym $mod+m exec "kitty -e btop"
 bindsym $mod+b exec "blueman-manager"
+bindsym $mod+u exec "kitty --class=KittyFloating --hold -e ~/scripts/updates.sh"
+bindsym $mod+Print exec "flameshot gui"
+bindsym Print exec "flameshot full"
 
-# toggle keybindings
-bindsym $mod+apostrophe exec "polybar-msg cmd toggle"
-bindsym $mod+Shift+apostrophe exec "polybar-msg cmd restart"
-bindsym $mod+Shift+b exec "~/.config/polybar/scripts/bluetooth_toggle.sh"
+# toggle & increase/decrease keybindings
+bindsym $mod+apostrophe exec --no-startup-id "polybar-msg cmd toggle"
+bindsym $mod+Shift+apostrophe exec --no-startup-id "polybar-msg cmd restart"
+bindsym $mod+Shift+b exec --no-startup-id "~/scripts/polybar/bluetooth.sh toggle"
+bindsym $mod+Shift+n exec --no-startup-id "~/scripts/night_light_toggle.sh"
+bindsym $mod+Shift+equal exec --no-startup-id "~/scripts/brightness.sh increase"
+bindsym $mod+Shift+minus exec --no-startup-id "~/scripts/brightness.sh decrease"
 
 # open windows with special rules
-for_window [class="Blueman-manager" instance="blueman"] floating enable, resize set 800 px 600 px, move position center
-for_window [class="KittyPolybar"] floating enable, resize set 800 px 600 px, move position center
+for_window [class="Blueman-manager"] floating enable, resize set 800 px 600 px, move position center
+for_window [class="Pavucontrol"] floating enable, resize set 800 px 600 px, move position center
+for_window [class="KittyFloating"] floating enable, resize set 800 px 600 px, move position center
+for_window [class="Lxappearance"] floating enable, resize set 800 px 600 px, move position center
+
+assign [class="zen"] $ws1
+assign [class="Nemo"] $ws3
+assign [class="Gimp"] $ws3
+assign [class="obsidian"] $ws3
+assign [class="steam"] $ws4
+assign [class="heroic"] $ws4
+assign [class="vlc"] $ws5
