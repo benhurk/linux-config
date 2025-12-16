@@ -4,27 +4,27 @@
 ## Github : @adi1090x
 #
 ## Rofi   : Power Menu
-
+#
 # Current Theme
-dir="$HOME/.config/rofi/powermenu"
+dir="$HOME/.config/rofi/powermenu/"
 theme='style'
 
 # CMDs
+uptime="$(uptime -p | sed -e 's/up //g')"
 host=$(hostname)
 
 # Options
-shutdown=' Desligar'
-reboot=' Reiniciar'
-lock=' Apagar tela'
-suspend=' Suspender'
-logout=' Sair'
-yes=' Sim'
-no=' Não'
+shutdown='󰐥'
+reboot='󰜉'
+lock='󰌾'
+suspend='󰤄'
+logout='󰍃'
 
 # Rofi CMD
 rofi_cmd() {
   rofi -dmenu \
-    -p "$host" \
+    -p "Uptime: $uptime" \
+    -mesg "Uptime: $uptime" \
     -theme ${dir}/${theme}.rasi
 }
 
@@ -44,7 +44,15 @@ run_cmd() {
     amixer set Master mute
     systemctl suspend
   elif [[ $1 == '--logout' ]]; then
-    i3-msg exit
+    if [[ "$DESKTOP_SESSION" == 'openbox' ]]; then
+      openbox --exit
+    elif [[ "$DESKTOP_SESSION" == 'bspwm' ]]; then
+      bspc quit
+    elif [[ "$DESKTOP_SESSION" == 'i3' ]]; then
+      i3-msg exit
+    elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
+      qdbus org.kde.ksmserver /KSMServer logout 0 0 0
+    fi
   fi
 }
 
