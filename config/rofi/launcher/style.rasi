@@ -17,8 +17,11 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-@import                          "shared/colors.rasi"
-@import                          "shared/fonts.rasi"
+@import                          "../colorscheme.rasi"
+
+* {
+  font: "JetBrains Mono Nerd Font SemiBold 10";
+}
 
 /*****----- Main Window -----*****/
 window {
@@ -34,7 +37,7 @@ window {
     margin:                      0px;
     padding:                     0px;
     border:                      1px solid;
-    border-radius:               12px;
+    border-radius:               4px;
     border-color:                @selected;
     background-color:            @background;
     cursor:                      "default";
@@ -60,7 +63,7 @@ inputbar {
     margin:                      0px;
     padding:                     15px;
     border:                      0px solid;
-    border-radius:               12px;
+    border-radius:               32px;
     border-color:                @selected;
     background-color:            white / 5%;
     text-color:                  @foreground;
@@ -123,9 +126,9 @@ element {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     5px;
+    padding:                     5px 10px;
     border:                      0px solid;
-    border-radius:               12px;
+    border-radius:               32px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
