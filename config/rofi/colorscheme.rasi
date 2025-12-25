@@ -1,10 +1,11 @@
 * {
-    background: #282c34D9;
-    background-alt: #4b5263;
-    foreground: #e5e5e5;
-    selected: #61afef;
-    secondary: #ffb86c;
-    disabled: #5b6682;
-    active: #90bf85;
-    urgent: #e06c75;
+    background: #24273aD9;
+    background-alt: #363a4f;
+    foreground: #cad3f5;
+    selected: #b7bdf8;
+    secondary: #f5a97f;
+    tertiary: #c6a0f6;
+    disabled: #5b6078;
+    active: #a6da95;
+    urgent: #ed8796;
 }
