@@ -1,3 +1,4 @@
 #!usr/bin/env bash
 
-source "$HOME/scripts/env.sh"
+COLORSCHEME_PATH="/home/benhur/.config/themes/catppuccin/dark.sh"
+source "$COLORSCHEME_PATH"

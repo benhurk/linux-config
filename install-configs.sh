@@ -11,7 +11,7 @@ link() {
   ln -sf "$src" "$dest"
 }
 
-log "Installing fonts..."
+log "Instalando fontes..."
 curl -O -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
 unzip JetBrainsMono.zip -d ~/.local/share/fonts/JetBrainsMono/
 rm JetBrainsMono.zip
@@ -22,11 +22,10 @@ rm NerdFontsSymbolsOnly.zip
 
 fc-cache -f -v
 
-log "Installing ohmyzsh"
+log "Instalando ohmyzsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
-log "Linking config files and scripts..."
-
+log "Criando links das configs e scripts..."
 link ~/linux-config/config/i3 ~/.config/i3
 link ~/linux-config/config/picom ~/.config/picom
 link ~/linux-config/config/polybar ~/.config/polybar
@@ -35,4 +34,4 @@ link ~/linux-config/config/kitty ~/.config/kitty
 link ~/linux-config/config/.zshrc ~/.zshrc
 link ~/linux-config/scripts ~/scripts
 
-log "Done! Restart i3 with Super + Shift + R."
+log "Pronto. Reinicie o i3 com Super + Shift + R."
