@@ -2,18 +2,22 @@
 
 log() { echo -e "\033[1;32m[INFO]\033[0m $1"; }
 
-link() {
-  local src=$1
-  local dest=$2
-  if [ -e "$dest" ] || [ -L "$dest" ]; then
-    rm -rf "$dest"
-  fi
-  ln -sf "$src" "$dest"
-}
+log "Instalando tema GTK..."
+curl -O -L https://github.com/lassekongo83/adw-gtk3/releases/download/v6.4/adw-gtk3v6.4.tar.xz
+tar -xf adw-gtk3v6.4.tar.xz -C ~/.themes/
+rm adw-gtk3v6.4.tar.xz
 
-log "Linking theme directories and files..."
-link ~/linux-config/themes/mouse-cursors ~/.icons
-link ~/linux-config/themes/icons ~/.local/share/icons
-link ~/linux-config/themes/wallpapers ~/Imagens/wallpapers
+log "Instalando tema de ícones..."
+wget -qO- https://git.io/papirus-icon-theme-install | env DESTDIR="$HOME/.icons" sh
+wget -qO- https://git.io/papirus-folders-install | env PREFIX=$HOME/.local sh
 
-log "Done."
+git clone https://github.com/catppuccin/papirus-folders.git
+cp -r papirus-folders/src/* ~/.icons/Papirus
+rm -rf papirus-folders
+
+log "Instalando temas de cursor..."
+git clone https://github.com/benhurk/Simp1e-Cursors.git
+tar -xf Simp1e-Cursors/Simp1e-All.tar.xz -C ~/.icons/
+rm -rf Simp1e-Cursors/
+
+log "Pronto."
