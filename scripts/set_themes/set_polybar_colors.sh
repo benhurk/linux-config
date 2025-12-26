@@ -33,4 +33,4 @@ else
   exit 1
 fi
 
-polybar-msg cmd restart >/dev/null
+$HOME/scripts/polybar/launch.sh 2>/dev/null
