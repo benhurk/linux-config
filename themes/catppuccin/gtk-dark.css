@@ -1,8 +1,5 @@
-/* Catppuccin mocha theme
-based on the solarized dark colours from adw-colors: https://github.com/lassekongo83/adw-colors/tree/main/themes/solarized-dark */
-
 /* Catppuccin colors */
-@define-color accent #b7bdf8;
+@define-color accent #c6a0f6;
 @define-color red #ed8796;
 @define-color green #a6da95;
 @define-color text #cad3f5;
