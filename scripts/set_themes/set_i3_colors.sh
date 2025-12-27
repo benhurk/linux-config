@@ -42,5 +42,3 @@ sed -i "s/^\(set \$color_tertiary \)#[0-9a-fA-F]\{6\}/\1$COLOR_TERTIARY/" $CONF_
 sed -i "s/^\(set \$color_disabled \)#[0-9a-fA-F]\{6\}/\1$COLOR_DISABLED/" $CONF_FILE
 sed -i "s/^\(set \$color_active \)#[0-9a-fA-F]\{6\}/\1$COLOR_ACTIVE/" $CONF_FILE
 sed -i "s/^\(set \$color_urgent \)#[0-9a-fA-F]\{6\}/\1$COLOR_URGENT/" $CONF_FILE
-
-i3-msg reload >/dev/null
