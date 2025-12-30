@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-source "$HOME/scripts/polybar/env.sh"
+source "$HOME/.config/polybar/scripts/env.sh"
 
 export COLOR_BACKGROUND=$COLOR_BACKGROUND
 export COLOR_BACKGROUND_ALT=$COLOR_BACKGROUND_ALT
@@ -13,4 +13,4 @@ export COLOR_ACTIVE=$COLOR_ACTIVE
 export COLOR_URGENT=$COLOR_URGENT
 
 pkill polybar
-polybar bar &
+polybar -q bar &

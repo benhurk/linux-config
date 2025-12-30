@@ -1,11 +1,11 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-STEP=0.1
-CURRENT=$(xrandr --verbose --current | awk -F': ' '/Brightness/ {print $2}')
+step=0.1
+current=$(xrandr --verbose --current | awk -F': ' '/Brightness/ {print $2}')
 
 increase() {
-  if [ $(echo "$CURRENT < 1.0" | bc -l) -eq 1 ]; then
-    xsct -d 0 $STEP 2>/dev/null
+  if [ $(echo "$current < 1.0" | bc -l) -eq 1 ]; then
+    xsct -d 0 $step 2>/dev/null
 
     notify-send \
       --hint=string:x-dunst-stack-tag:Brightness \
@@ -14,8 +14,8 @@ increase() {
 }
 
 decrease() {
-  if [ $(echo "$CURRENT > 0.1" | bc -l) -eq 1 ]; then
-    xsct -d 0 -$STEP 2>/dev/null
+  if [ $(echo "$current > 0.1" | bc -l) -eq 1 ]; then
+    xsct -d 0 -$step 2>/dev/null
 
     notify-send \
       --hint=string:x-dunst-stack-tag:Brightness \
@@ -26,5 +26,5 @@ decrease() {
 case "$1" in
 increase) increase ;;
 decrease) decrease ;;
-*) echo "$CURRENT" ;;
+*) echo "$current" ;;
 esac

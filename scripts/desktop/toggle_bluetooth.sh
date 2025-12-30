@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(bluetoothctl show | grep "Powered: yes" | wc -l) -eq 0 ]; then
+if [ -z $(bluetoothctl show | grep "Powered: yes") ]; then
   bluetoothctl power on
 else
   bluetoothctl power off

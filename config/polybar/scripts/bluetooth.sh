@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$HOME/scripts/polybar/env.sh"
+source "$HOME/.config/polybar/scripts/env.sh"
 
 if [ $(bluetoothctl show | grep "Powered: yes" | wc -l) -eq 0 ]; then
   echo "%{F$COLOR_DISABLED}%{T2}%{T-} %{T1}Off%{T-}%{F-}"
