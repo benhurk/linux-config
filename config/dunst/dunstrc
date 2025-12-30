@@ -1,0 +1,24 @@
+[global]
+frame_color = "#61afef"
+separator_color = frame
+highlight = "#ffb86c"
+font = JetBrainsMono Nerd Font 11
+corner_radius = 0
+width = (0, 300)
+padding = 12
+horizontal_padding = 16
+frame_width = 2
+gap_size = 4
+
+[urgency_low]
+background = "#282C34"
+foreground = "#E5E5E5"
+
+[urgency_normal]
+background = "#282C34"
+foreground = "#E5E5E5"
+
+[urgency_critical]
+background = "#282C34"
+foreground = "#E5E5E5"
+frame_color = "#e06c75"
