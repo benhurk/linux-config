@@ -11,17 +11,6 @@ link() {
   ln -sf "$src" "$dest"
 }
 
-log "Instalando fontes..."
-curl -O -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
-unzip JetBrainsMono.zip -d ~/.local/share/fonts/JetBrainsMono/
-rm JetBrainsMono.zip
-
-curl -O -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/NerdFontsSymbolsOnly.zip
-unzip NerdFontsSymbolsOnly.zip -d ~/.local/share/fonts/NerdFontsSymbolsOnly/
-rm NerdFontsSymbolsOnly.zip
-
-fc-cache -f -v
-
 log "Instalando ohmyzsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -31,7 +20,12 @@ link ~/linux-config/config/picom ~/.config/picom
 link ~/linux-config/config/polybar ~/.config/polybar
 link ~/linux-config/config/rofi ~/.config/rofi
 link ~/linux-config/config/kitty ~/.config/kitty
+link ~/linux-config/config/nvim ~/.config/nvim
+link ~/linux-config/config/dunst ~/.config/dunst
+link ~/linux-config/config/gtk-3.0 ~/.config/gtk-3.0
+link ~/linux-config/config/gtk-4.0 ~/.config/gtk-4.0
+link ~/linux-config/config/themes ~/.config/themes
 link ~/linux-config/config/.zshrc ~/.zshrc
 link ~/linux-config/scripts ~/scripts
 
-log "Pronto. Reinicie o i3 com Super + Shift + R."
+log "Pronto."

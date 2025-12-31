@@ -2,6 +2,17 @@
 
 log() { echo -e "\033[1;32m[INFO]\033[0m $1"; }
 
+log "Instalando fontes..."
+curl -O -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip
+unzip JetBrainsMono.zip -d ~/.local/share/fonts/JetBrainsMono/
+rm JetBrainsMono.zip
+
+curl -O -L https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/NerdFontsSymbolsOnly.zip
+unzip NerdFontsSymbolsOnly.zip -d ~/.local/share/fonts/NerdFontsSymbolsOnly/
+rm NerdFontsSymbolsOnly.zip
+
+fc-cache -f -v
+
 log "Instalando tema GTK..."
 curl -O -L https://github.com/lassekongo83/adw-gtk3/releases/download/v6.4/adw-gtk3v6.4.tar.xz
 tar -xf adw-gtk3v6.4.tar.xz -C ~/.themes/
