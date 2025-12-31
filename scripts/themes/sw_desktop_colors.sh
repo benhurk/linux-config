@@ -32,17 +32,17 @@ else
 fi
 
 # i3
-i3_conf_file="$HOME/.config/i3/colors.conf"
+i3_config="$HOME/.config/i3/colors.conf"
 
-sed -i "s/^\(set \$color_background \).*/\1$COLOR_BACKGROUND/" $i3_conf_file
-sed -i "s/^\(set \$color_background_alt \).*/\1$COLOR_BACKGROUND_ALT/" $i3_conf_file
-sed -i "s/^\(set \$color_foreground \).*/\1$COLOR_FOREGROUND/" $i3_conf_file
-sed -i "s/^\(set \$color_primary \).*/\1$COLOR_PRIMARY/" $i3_conf_file
-sed -i "s/^\(set \$color_secondary \).*/\1$COLOR_SECONDARY/" $i3_conf_file
-sed -i "s/^\(set \$color_tertiary \).*/\1$COLOR_TERTIARY/" $i3_conf_file
-sed -i "s/^\(set \$color_disabled \).*/\1$COLOR_DISABLED/" $i3_conf_file
-sed -i "s/^\(set \$color_active \).*/\1$COLOR_ACTIVE/" $i3_conf_file
-sed -i "s/^\(set \$color_urgent \).*/\1$COLOR_URGENT/" $i3_conf_file
+sed -i "s/^\(set \$color_background \).*/\1$COLOR_BACKGROUND/" $i3_config
+sed -i "s/^\(set \$color_background_alt \).*/\1$COLOR_BACKGROUND_ALT/" $i3_config
+sed -i "s/^\(set \$color_foreground \).*/\1$COLOR_FOREGROUND/" $i3_config
+sed -i "s/^\(set \$color_primary \).*/\1$COLOR_PRIMARY/" $i3_config
+sed -i "s/^\(set \$color_secondary \).*/\1$COLOR_SECONDARY/" $i3_config
+sed -i "s/^\(set \$color_tertiary \).*/\1$COLOR_TERTIARY/" $i3_config
+sed -i "s/^\(set \$color_disabled \).*/\1$COLOR_DISABLED/" $i3_config
+sed -i "s/^\(set \$color_active \).*/\1$COLOR_ACTIVE/" $i3_config
+sed -i "s/^\(set \$color_urgent \).*/\1$COLOR_URGENT/" $i3_config
 
 # polybar
 polybar_env="$HOME/.config/polybar/scripts/env.sh"
@@ -61,3 +61,13 @@ sed -i "s/tertiary: .*/tertiary: $COLOR_TERTIARY;/" $rofi_colors_rasi
 sed -i "s/disabled: .*/disabled: $COLOR_DISABLED;/" $rofi_colors_rasi
 sed -i "s/active: .*/active: $COLOR_ACTIVE;/" $rofi_colors_rasi
 sed -i "s/urgent: .*/urgent: $COLOR_URGENT;/" $rofi_colors_rasi
+
+# dunst
+dunst_config="$HOME/.config/dunst/dunstrc"
+
+sed -i "s/background = .*/background = \"$COLOR_BACKGROUND\"/" $dunst_config
+sed -i "s/foreground = .*/foreground = \"$COLOR_FOREGROUND\"/" $dunst_config
+sed -i "s/frame_color = .*/frame_color = \"$COLOR_PRIMARY\"/" $dunst_config
+sed -i "s/highlight = .*/highlight = \"$COLOR_PRIMARY\"/" $dunst_config
+
+killall dunst

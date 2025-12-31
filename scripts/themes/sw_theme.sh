@@ -25,7 +25,7 @@ if [ ! -d $themedir ]; then
 fi
 
 if [ $VARIANT == "dark" ] || [ $VARIANT == "light" ]; then
-  notify-send "Mudando tema para $THEME $VARIANT..."
+  notify-send -i colors "Mudando tema..." "$THEME $VARIANT"
 
   # gtk and desktop colors
   $HOME/scripts/themes/sw_gtk_colors.sh $THEME $VARIANT
