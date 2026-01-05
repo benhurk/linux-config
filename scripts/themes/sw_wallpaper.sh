@@ -13,8 +13,9 @@ if [ ! -e "$image_path" ]; then
 fi
 
 if [[ $(file -b "$image_path") == *"image data"* ]]; then
-  feh --bg-fill $image_path
-  sed -i "s|^set \$wallpaper .*|set \$wallpaper $image_path|" $HOME/.config/i3/wallpaper.conf
+  sed -i "s|^set \$wallpaper .*|set \$wallpaper $image_path|" $HOME/.config/sway/wallpaper.conf
+
+  swaymsg output HDMI-A-1 bg $image_path fill >/dev/null
 else
   echo "$1 is not a valid image file"
   exit 1

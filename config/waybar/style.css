@@ -1,0 +1,131 @@
+@import "colors.css";
+
+* {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background-color: transparent;
+  font-family: "JetBrainsMonoNL Nerd Font Propo";
+  font-size: 14px;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin-top: 4px;
+}
+
+.modules-left {
+  margin-left: 4px;
+}
+
+.modules-right {
+  margin-right: 4px;
+}
+
+#custom-menu,
+#clock,
+#network,
+#bluetooth,
+#pulseaudio,
+#workspaces,
+#tray,
+#custom-updates,
+#cpu,
+#memory,
+#temperature {
+  background-color: @bg;
+  border-radius: 16px;
+  padding: 0 16px;
+  margin: 0 4px;
+  border: 1px solid @bg-alt;
+  color: @fg;
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+#custom-menu {
+  color: @primary;
+}
+
+#clock {
+  color: @secondary;
+}
+
+#network {
+  color: @active;
+}
+
+#network.disconnected {
+  color: @urgent;
+}
+
+#bluetooth.on {
+  color: @primary;
+}
+
+#bluetooth.off {
+  color: @disabled;
+}
+
+#bluetooth.connected {
+  color: @active;
+}
+
+#pulseaudio {
+  color: @tertiary;
+}
+
+#pulseaudio.muted {
+  color: @disabled;
+}
+
+#workspaces {
+  padding: 4px;
+}
+
+#workspaces button {
+  background-color: transparent;
+  border-radius: 16px;
+  font-size: 11px;
+  min-width: 48px;
+}
+
+#workspaces button.focused {
+  font-size: 14px;
+  min-width: 54px;
+  background-color: @primary;
+  color: @bg;
+}
+
+#workspaces button.persistent {
+  color: @disabled;
+}
+
+#cpu {
+  color: @primary;
+}
+
+#memory {
+  color: @secondary;
+}
+
+#temperature {
+  color: @tertiary;
+}
+
+#cpu.warning {
+  color: @urgent;
+}
+
+#memory.warning {
+  color: @urgent;
+}
+
+#temperature.critical {
+  color: @urgent;
+}

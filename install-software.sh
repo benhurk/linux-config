@@ -1,8 +1,8 @@
 #!/bin/bash
 
 sudo apt install -y \
-  pavucontrol blueman lxappearance btop \
-  vlc mpv qbittorrent steam
+  pavucontrol blueman btop \
+  mpv qbittorrent steam
 
 flatpak install -y \
   app.zen_browser.zen \
@@ -11,3 +11,4 @@ flatpak install -y \
   com.bitwarden.desktop
 
 nix-env -iA nixpkgs.neovim
+nix-env -iA nixpkgs.nodePackages_latest.nodejs

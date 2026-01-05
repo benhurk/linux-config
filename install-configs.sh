@@ -15,9 +15,8 @@ log "Instalando ohmyzsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 log "Criando links das configs e scripts..."
-link ~/linux-config/config/i3 ~/.config/i3
-link ~/linux-config/config/picom ~/.config/picom
-link ~/linux-config/config/polybar ~/.config/polybar
+link ~/linux-config/config/sway ~/.config/sway
+link ~/linux-config/config/waybar ~/.config/waybar
 link ~/linux-config/config/rofi ~/.config/rofi
 link ~/linux-config/config/kitty ~/.config/kitty
 link ~/linux-config/config/nvim ~/.config/nvim

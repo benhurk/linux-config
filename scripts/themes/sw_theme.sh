@@ -48,5 +48,4 @@ else
   exit 1
 fi
 
-$HOME/.config/polybar/scripts/launch.sh >/dev/null
-i3-msg reload >/dev/null
+swaymsg reload >/dev/null

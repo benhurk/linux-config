@@ -31,36 +31,44 @@ else
   exit 1
 fi
 
-# i3
-i3_config="$HOME/.config/i3/colors.conf"
+# sway
+sway_config="$HOME/.config/sway/colors.conf"
 
-sed -i "s/^\(set \$color_background \).*/\1$COLOR_BACKGROUND/" $i3_config
-sed -i "s/^\(set \$color_background_alt \).*/\1$COLOR_BACKGROUND_ALT/" $i3_config
-sed -i "s/^\(set \$color_foreground \).*/\1$COLOR_FOREGROUND/" $i3_config
-sed -i "s/^\(set \$color_primary \).*/\1$COLOR_PRIMARY/" $i3_config
-sed -i "s/^\(set \$color_secondary \).*/\1$COLOR_SECONDARY/" $i3_config
-sed -i "s/^\(set \$color_tertiary \).*/\1$COLOR_TERTIARY/" $i3_config
-sed -i "s/^\(set \$color_disabled \).*/\1$COLOR_DISABLED/" $i3_config
-sed -i "s/^\(set \$color_active \).*/\1$COLOR_ACTIVE/" $i3_config
-sed -i "s/^\(set \$color_urgent \).*/\1$COLOR_URGENT/" $i3_config
+sed -i "s/^\(set \$color_background \).*/\1$COLOR_BACKGROUND/" $sway_config
+sed -i "s/^\(set \$color_background_alt \).*/\1$COLOR_BACKGROUND_ALT/" $sway_config
+sed -i "s/^\(set \$color_foreground \).*/\1$COLOR_FOREGROUND/" $sway_config
+sed -i "s/^\(set \$color_primary \).*/\1$COLOR_PRIMARY/" $sway_config
+sed -i "s/^\(set \$color_secondary \).*/\1$COLOR_SECONDARY/" $sway_config
+sed -i "s/^\(set \$color_tertiary \).*/\1$COLOR_TERTIARY/" $sway_config
+sed -i "s/^\(set \$color_disabled \).*/\1$COLOR_DISABLED/" $sway_config
+sed -i "s/^\(set \$color_active \).*/\1$COLOR_ACTIVE/" $sway_config
+sed -i "s/^\(set \$color_urgent \).*/\1$COLOR_URGENT/" $sway_config
 
-# polybar
-polybar_env="$HOME/.config/polybar/scripts/env.sh"
+# waybar
+waybar_css="$HOME/.config/waybar/colors.css"
 
-sed -i "s|COLORSCHEME_PATH=\"[^\"]*\"|COLORSCHEME_PATH=\"$themedir/$VARIANT.sh\"|" $polybar_env
+sed -i "s/bg #.*;/bg $COLOR_BACKGROUND;/" $waybar_css
+sed -i "s/bg-alt #.*;/bg-alt $COLOR_BACKGROUND_ALT;/" $waybar_css
+sed -i "s/fg #.*;/fg $COLOR_FOREGROUND;/" $waybar_css
+sed -i "s/primary #.*;/primary $COLOR_PRIMARY;/" $waybar_css
+sed -i "s/secondary #.*;/secondary $COLOR_SECONDARY;/" $waybar_css
+sed -i "s/tertiary #.*;/tertiary $COLOR_TERTIARY;/" $waybar_css
+sed -i "s/disabled #.*;/disabled $COLOR_DISABLED;/" $waybar_css
+sed -i "s/active #.*;/active $COLOR_ACTIVE;/" $waybar_css
+sed -i "s/urgent #.*;/urgent $COLOR_URGENT;/" $waybar_css
 
 # rofi
-rofi_colors_rasi="$HOME/.config/rofi/colorscheme.rasi"
+rofi_rasi="$HOME/.config/rofi/colorscheme.rasi"
 
-sed -i "s/background: .*/background: "$COLOR_BACKGROUND"D9;/" $rofi_colors_rasi
-sed -i "s/background-alt: .*/background-alt: $COLOR_BACKGROUND_ALT;/" $rofi_colors_rasi
-sed -i "s/foreground: .*/foreground: $COLOR_FOREGROUND;/" $rofi_colors_rasi
-sed -i "s/selected: .*/selected: $COLOR_PRIMARY;/" $rofi_colors_rasi
-sed -i "s/secondary: .*/secondary: $COLOR_SECONDARY;/" $rofi_colors_rasi
-sed -i "s/tertiary: .*/tertiary: $COLOR_TERTIARY;/" $rofi_colors_rasi
-sed -i "s/disabled: .*/disabled: $COLOR_DISABLED;/" $rofi_colors_rasi
-sed -i "s/active: .*/active: $COLOR_ACTIVE;/" $rofi_colors_rasi
-sed -i "s/urgent: .*/urgent: $COLOR_URGENT;/" $rofi_colors_rasi
+sed -i "s/background: .*/background: "$COLOR_BACKGROUND"D9;/" $rofi_rasi
+sed -i "s/background-alt: .*/background-alt: $COLOR_BACKGROUND_ALT;/" $rofi_rasi
+sed -i "s/foreground: .*/foreground: $COLOR_FOREGROUND;/" $rofi_rasi
+sed -i "s/selected: .*/selected: $COLOR_PRIMARY;/" $rofi_rasi
+sed -i "s/secondary: .*/secondary: $COLOR_SECONDARY;/" $rofi_rasi
+sed -i "s/tertiary: .*/tertiary: $COLOR_TERTIARY;/" $rofi_rasi
+sed -i "s/disabled: .*/disabled: $COLOR_DISABLED;/" $rofi_rasi
+sed -i "s/active: .*/active: $COLOR_ACTIVE;/" $rofi_rasi
+sed -i "s/urgent: .*/urgent: $COLOR_URGENT;/" $rofi_rasi
 
 # dunst
 dunst_config="$HOME/.config/dunst/dunstrc"

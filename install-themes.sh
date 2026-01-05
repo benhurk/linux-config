@@ -25,6 +25,9 @@ wget -qO- https://git.io/papirus-folders-install | env PREFIX=$HOME/.local sh
 git clone https://github.com/catppuccin/papirus-folders.git
 cp -r papirus-folders/src/* ~/.icons/Papirus
 rm -rf papirus-folders
+git clone https://github.com/xelser/gruvbox-papirus-folders
+cp -r gruvbox-papirus-folders/src/* ~/.icons/Papirus/
+rm -rf gruvbox-papirus-folders
 
 log "Instalando temas de cursor..."
 git clone https://github.com/benhurk/Simp1e-Cursors.git
