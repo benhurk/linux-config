@@ -2,7 +2,7 @@
 
 sudo apt install -y \
   pavucontrol blueman btop \
-  mpv qbittorrent steam
+  mpv qbittorrent steam-installer
 
 flatpak install -y \
   app.zen_browser.zen \

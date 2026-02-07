@@ -1,7 +1,6 @@
-default-wallpaper-dark=~/Imagens/wallpapers/irizakatou_fields.jpg
+default-wallpaper-dark=~/Imagens/wallpapers/forest_mist.jpg
 default-wallpaper-light=~/Imagens/wallpapers/irizakatou_fields.jpg
 folders-dark=gruvbox-original-aqua
 folders-light=gruvbox-original-aqua
-mouse-cursor=Simp1e-Gruvbox-Dark 
 kitty-theme=Everforest\ Dark\ Hard
 neovim-theme=everforest

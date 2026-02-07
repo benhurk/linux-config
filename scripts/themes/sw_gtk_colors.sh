@@ -28,7 +28,7 @@ if [ $VARIANT == "dark" ] || [ $VARIANT == "light" ]; then
   cp "$themedir/gtk-$VARIANT.css" "$HOME/.config/gtk-3.0/colorscheme.css"
   cp "$themedir/gtk-$VARIANT.css" "$HOME/.config/gtk-4.0/colorscheme.css"
 
-  folders=$(cat $themedir/extras.ini | grep "folders-$VARIANT" | awk -F '=' '{print $2}')
+  folders=$(cat $themedir/config | grep "folders-$VARIANT" | awk -F '=' '{print $2}')
   papirus-folders --color $folders >/dev/null
 else
   echo "Invalid variant. Available: dark or light"

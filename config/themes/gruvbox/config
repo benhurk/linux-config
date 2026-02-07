@@ -1,0 +1,6 @@
+default-wallpaper-dark=~/Imagens/wallpapers/woods_sun_rays.jpg
+default-wallpaper-light=~/Imagens/wallpapers/irizakatou_fields.jpg
+folders-dark=gruvbox-material-yellow
+folders-light=gruvbox-material-yellow
+kitty-theme=Gruvbox\ Material\ Dark\ Hard
+neovim-theme=gruvbox-material

@@ -2,64 +2,100 @@
 {
   // "layer": "top", // Waybar at top layer
   "position": "top",
-  "height": 32,
-  "spacing": 16, // Gaps between modules
+  "height": 28,
+  "margin": "4 4 0 4",
+  "spacing": 32, // Gaps between modules
   "fixed-center": true,
   "ipc": true,
   "reload_style_on_change": true,
 
   "modules-left": [
-    "custom/menu",
     "clock",
     "network",
     "bluetooth",
     "pulseaudio",
+    "power-profiles-daemon",
+    "custom/updates",
+    "tray",
   ],
   "modules-center": ["sway/workspaces"],
-  "modules-right": ["tray", "custom/updates", "cpu", "memory", "temperature"],
+  "modules-right": [
+    "sway/window",
+    "cpu",
+    "memory",
+    "temperature",
+    "custom/menu",
+  ],
 
   // Modules configuration
-  "custom/menu": {
-    "format": "",
-    "on-click": "~/.config/rofi/launcher/launcher.sh",
-    "on-click-right": "~/.config/rofi/powermenu/powermenu.sh",
-    "tooltip": false,
-  },
-
   "clock": {
     "format": " {:%H:%M}",
-    "tooltip": false,
+    "tooltip-format": "󰃭 {:%A - %d/%m/%Y}",
+    "locale": "pt_BR.utf8",
   },
 
   "network": {
-    "format-wifi": "{icon} {essid}",
-    "format-ethernet": " {cidr}",
-    "format-disconnected": "󰤮 Offline",
+    "format-wifi": "{icon}",
+    "format-ethernet": "",
+    "format-disconnected": "󰤮",
     "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
-    "tooltip": false,
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Offline",
     "on-click-right": "nm-connection-editor",
   },
 
   "bluetooth": {
-    "format-on": "<span font='16px'>󰂯</span> <span rise='1000'>On</span>",
-    "format-off": "<span font='16px'>󰂲</span> <span rise='1000'>Off</span>",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
     "format-disabled": "",
-    "format-connected": "<span font='16px'>󰂱</span> <span rise='1000'>Conectado</span>",
-    "format-connected-battery": "<span font='16px'>󰂯</span> <span rise='1000'>On</span>",
+    "format-connected": "󰂱",
+    "format-connected-battery": "󰥉 {device_battery_percentage}",
+    "tooltip-format-connected": "{device_enumerate}",
+    "tooltip-format-connected-battery": "{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
+    "tooltip-format-enumerate-connected-battery": "{device_alias} 󰥉 {device_battery_percentage}",
     "on-click": "~/scripts/desktop/toggle_bluetooth.sh",
     "on-click-right": "blueman-manager",
   },
 
   "pulseaudio": {
-    "scroll-step": 5, // %, can be a float
+    "scroll-step": 5,
     "format": "<span font='16px'>{icon}</span> <span rise='1000'>{volume}%</span>",
-    "format-muted": "<span font='16px'>󰖁</span> <span rise='1000'></span>",
+    "format-muted": "<span font='16px'>󰖁</span> <span rise='1000'>0%</span>",
     "format-icons": {
       "default": ["󰖀", "󰕾", "󰕾"],
     },
     "tooltip": false,
-    "on-click": "amixer set Master toggle",
+    "on-click": "pamixer -t",
     "on-click-right": "pavucontrol",
+  },
+
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power Profile: {profile}",
+    "tooltip": true,
+    "format-icons": {
+      "default": "",
+      "performance": "",
+      "balanced": "",
+      "power-saver": "",
+    },
+  },
+
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 14,
+    "icon": false,
+    "icon-size": 14,
+    "rewrite": {
+      "": "~",
+      "(.*):~": "~",
+      "(.*) — Zen Browser": "$1",
+      "(.*) - Thunar": "$1",
+      "qBittorrent (.*)": "qBittorrent",
+    },
+    "on-click-right": "swaymsg kill",
   },
 
   "sway/workspaces": {
@@ -70,7 +106,7 @@
     "format-icons": {
       "1": "",
       "2": "",
-      "3": "󰣞",
+      "3": "󰈔",
       "4": "󰓓",
       "5": "󰐌",
       "default": "",
@@ -84,15 +120,8 @@
   },
 
   "tray": {
-    "spacing": 10,
-  },
-
-  "custom/updates": {
-    "exec": "~/.config/waybar/scripts/updates.sh",
-    "interval": 3600,
-    "signal": 1,
-    "tooltip": false,
-    "on-click": "kitty --class=KittyFloating --hold -e ~/scripts/desktop/updates.sh",
+    "icon-size": 16,
+    "spacing": 14,
   },
 
   "cpu": {
@@ -100,6 +129,7 @@
     "states": {
       "warning": 50,
     },
+    "interval": 5,
     "tooltip": false,
     "on-click": "kitty -e btop",
   },
@@ -109,6 +139,7 @@
     "states": {
       "warning": 70,
     },
+    "interval": 5,
     "tooltip": false,
     "on-click": "kitty -e btop",
   },
@@ -120,5 +151,20 @@
     "format": "{icon} {temperatureC}°C",
     "format-icons": ["", "", ""],
     "tooltip": false,
+  },
+
+  "custom/menu": {
+    "format": "",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "~/.config/rofi/launcher/launcher.sh",
+    "tooltip": false,
+  },
+
+  "custom/updates": {
+    "exec": "~/.config/waybar/scripts/updates.sh",
+    "interval": 3600,
+    "signal": 1,
+    "tooltip": false,
+    "on-click": "kitty --class=KittyFloating --hold -e ~/scripts/desktop/updates.sh",
   },
 }

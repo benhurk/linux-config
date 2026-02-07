@@ -1,5 +1,5 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+export XDG_DATA_DIRS=/var/lib/flatpak/exports/share:/home/benhur/.local/share/flatpak/exports/share:$XDG_DATA_DIRS
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

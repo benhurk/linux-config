@@ -1,5 +1,5 @@
 @import "colorscheme.css";
 
-* {
-  font-weight: 500;
+window {
+  border-radius: 0px;
 }

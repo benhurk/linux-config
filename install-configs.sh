@@ -2,6 +2,10 @@
 
 log() { echo -e "\033[1;32m[INFO]\033[0m $1"; }
 
+if [ ! -d "~/.config" ]; then
+  mkdir -p ~/.config
+fi
+
 link() {
   local src=$1
   local dest=$2
@@ -15,16 +19,17 @@ log "Instalando ohmyzsh"
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 log "Criando links das configs e scripts..."
-link ~/linux-config/config/sway ~/.config/sway
-link ~/linux-config/config/waybar ~/.config/waybar
-link ~/linux-config/config/rofi ~/.config/rofi
-link ~/linux-config/config/kitty ~/.config/kitty
-link ~/linux-config/config/nvim ~/.config/nvim
-link ~/linux-config/config/dunst ~/.config/dunst
-link ~/linux-config/config/gtk-3.0 ~/.config/gtk-3.0
-link ~/linux-config/config/gtk-4.0 ~/.config/gtk-4.0
-link ~/linux-config/config/themes ~/.config/themes
-link ~/linux-config/config/.zshrc ~/.zshrc
-link ~/linux-config/scripts ~/scripts
+
+link ~/.repo/config/sway ~/.config/sway
+link ~/.repo/config/waybar ~/.config/waybar
+link ~/.repo/config/rofi ~/.config/rofi
+link ~/.repo/config/kitty ~/.config/kitty
+link ~/.repo/config/nvim ~/.config/nvim
+link ~/.repo/config/dunst ~/.config/dunst
+link ~/.repo/config/gtk-3.0 ~/.config/gtk-3.0
+link ~/.repo/config/gtk-4.0 ~/.config/gtk-4.0
+link ~/.repo/config/themes ~/.config/themes
+link ~/.repo/config/.zshrc ~/.zshrc
+link ~/.repo/scripts ~/scripts
 
 log "Pronto."

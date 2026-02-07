@@ -1,31 +1,38 @@
 @import "colors.css";
 
 * {
-  font-weight: 700;
   margin: 0;
   padding: 0;
   border: none;
   border-radius: 0;
+  font-family: "JetBrainsMonoNL Nerd Font Propo";
 }
 
 window#waybar {
   background-color: transparent;
-  font-family: "JetBrainsMonoNL Nerd Font Propo";
   font-size: 14px;
 }
 
-.modules-left,
-.modules-center,
-.modules-right {
-  margin-top: 4px;
+window > box {
+  padding: 4px;
+  background-color: @bg;
+  border: 1px solid @bg-contrast;
+  border-radius: 16px;
 }
 
-.modules-left {
-  margin-left: 4px;
+tooltip {
+  background-color: alpha(@bg, 0);
+  font-weight: 500;
+  box-shadow: none;
+  padding: 0;
 }
 
-.modules-right {
-  margin-right: 4px;
+tooltip label {
+  background-color: alpha(@bg, 0.95);
+  border: 1px solid @bg-contrast;
+  border-radius: 4px;
+  color: @fg;
+  padding: 6px 16px;
 }
 
 #custom-menu,
@@ -38,30 +45,35 @@ window#waybar {
 #custom-updates,
 #cpu,
 #memory,
-#temperature {
-  background-color: @bg;
-  border-radius: 16px;
-  padding: 0 16px;
-  margin: 0 4px;
-  border: 1px solid @bg-alt;
-  color: @fg;
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.2);
+#temperature,
+#window {
+  font-weight: 700;
 }
 
-#custom-menu {
-  color: @primary;
+#clock,
+#workspaces,
+#window,
+#tray {
+  background-color: @bg-alt;
+  border-radius: 16px;
+  padding: 0px 14px;
 }
 
 #clock {
-  color: @secondary;
+  color: @fg;
 }
 
 #network {
   color: @active;
+  font-family: "Symbols Nerd Font Mono";
 }
 
 #network.disconnected {
   color: @urgent;
+}
+
+#bluetooth {
+  font-size: 16px;
 }
 
 #bluetooth.on {
@@ -77,15 +89,42 @@ window#waybar {
 }
 
 #pulseaudio {
-  color: @tertiary;
+  color: @secondary;
 }
 
 #pulseaudio.muted {
   color: @disabled;
 }
 
+#power-profiles-daemon.performance,
+#power-profiles-daemon.power-saver {
+  color: @active;
+}
+
+#power-profiles-daemon.balanced {
+  color: @disabled;
+}
+
+#custom-updates {
+  color: @tertiary;
+}
+
+#window {
+  color: @fg;
+  transition: background-color 200ms ease-in-out;
+  font-weight: 500;
+}
+
+#window:hover {
+  background-color: @bg-contrast;
+}
+
+window#waybar.empty #window:hover {
+  color: @fg;
+}
+
 #workspaces {
-  padding: 4px;
+  padding: 0 1px;
 }
 
 #workspaces button {
@@ -93,6 +132,15 @@ window#waybar {
   border-radius: 16px;
   font-size: 11px;
   min-width: 48px;
+  color: @fg;
+}
+
+#workspaces button.persistent {
+  color: @disabled;
+}
+
+#workspaces button:hover {
+  color: @primary;
 }
 
 #workspaces button.focused {
@@ -102,8 +150,22 @@ window#waybar {
   color: @bg;
 }
 
-#workspaces button.persistent {
-  color: @disabled;
+#tray menu {
+  padding: 4px;
+  background-color: @bg;
+  border: 1px solid @bg-contrast;
+  box-shadow: none;
+}
+
+#tray menu menuitem {
+  padding: 3px 0;
+  font-size: 14px;
+  border-radius: 16px;
+  background-color: transparent;
+}
+
+#tray menu menuitem:hover {
+  color: @primary;
 }
 
 #cpu {
@@ -128,4 +190,17 @@ window#waybar {
 
 #temperature.critical {
   color: @urgent;
+}
+
+#custom-menu {
+  color: @bg;
+  background-color: @fg;
+  padding: 0 14px;
+  border-radius: 9999px;
+  transition: all 200ms ease-in-out;
+}
+
+#custom-menu:hover {
+  background-color: @primary;
+  color: @bg;
 }

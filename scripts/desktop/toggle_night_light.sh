@@ -1,14 +1,22 @@
 #!/bin/bash
 
-current_temp=$(xsct | awk -F' ' '{print $5}')
+check() {
+  if [ $(pgrep gammastep | wc -l) -gt 0 ]; then
+    echo true
+  else
+    echo false
+  fi
+}
 
-temp_day=6500
-brightness_day=1.0
-temp_night=3200
-brightness_night=0.9
+toggle() {
+  if [[ $(check) == true ]]; then
+    pkill gammastep
+  else
+    gammastep -o
+  fi
+}
 
-if [ $current_temp -lt $temp_day ]; then
-  xsct $temp_day $brightness_day
-else
-  xsct $temp_night $brightness_night
-fi
+case "$1" in
+check) check ;;
+*) toggle ;;
+esac

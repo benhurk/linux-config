@@ -1,19 +1,4 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- **/
-
-/*****----- Configuration -----*****/
-configuration {
-	modi:                       [drun];
-    show-icons:                 true;
-    display-drun:               "";
-	drun-display-format:        "{name}";
-}
-
-/*****----- Global Properties -----*****/
-@import                          "../colorscheme.rasi"
+@import "../colorscheme.rasi"
 
 * {
   font: "JetBrains Mono Nerd Font SemiBold 10";
@@ -25,7 +10,8 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       700px;
+    width:                       360px;
+    height:                      540px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -42,9 +28,9 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     2px;
     margin:                      0px;
-    padding:                     20px;
+    padding:                     0;
     border:                      0px solid;
     border-radius:               0px 0px 0px 0px;
     border-color:                @selected;
@@ -59,7 +45,7 @@ inputbar {
     margin:                      0px;
     padding:                     12px;
     border:                      0px solid;
-    border-radius:               32px;
+    border-radius:               0px;
     border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  @foreground;
@@ -83,14 +69,14 @@ entry {
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "drun";
-    placeholder-color:           inherit;
+    placeholder:                 "";
+    placeholder-color:           @disabled;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     2;
+    columns:                     1;
     lines:                       8;
     cycle:                       true;
     dynamic:                     true;
@@ -100,7 +86,7 @@ listview {
     fixed-height:                true;
     fixed-columns:               true;
     
-    spacing:                     6px;
+    spacing:                     0px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
@@ -122,9 +108,9 @@ element {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     4px 12px;
+    padding:                     12px;
     border:                      0px solid;
-    border-radius:               32px;
+    border-radius:               0px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -135,8 +121,8 @@ element normal.normal {
     text-color:                  @foreground;
 }
 element selected.normal {
-    text-color:                  @selected;
-    background-color:            @background-alt;
+    text-color:                  @background;
+    background-color:            @selected;
 }
 
 element-icon {

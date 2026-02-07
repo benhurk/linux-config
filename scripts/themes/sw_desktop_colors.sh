@@ -49,6 +49,7 @@ waybar_css="$HOME/.config/waybar/colors.css"
 
 sed -i "s/bg #.*;/bg $COLOR_BACKGROUND;/" $waybar_css
 sed -i "s/bg-alt #.*;/bg-alt $COLOR_BACKGROUND_ALT;/" $waybar_css
+sed -i "s/bg-contrast #.*;/bg-contrast $COLOR_BACKGROUND_CONTRAST;/" $waybar_css
 sed -i "s/fg #.*;/fg $COLOR_FOREGROUND;/" $waybar_css
 sed -i "s/primary #.*;/primary $COLOR_PRIMARY;/" $waybar_css
 sed -i "s/secondary #.*;/secondary $COLOR_SECONDARY;/" $waybar_css
@@ -60,7 +61,7 @@ sed -i "s/urgent #.*;/urgent $COLOR_URGENT;/" $waybar_css
 # rofi
 rofi_rasi="$HOME/.config/rofi/colorscheme.rasi"
 
-sed -i "s/background: .*/background: "$COLOR_BACKGROUND"D9;/" $rofi_rasi
+sed -i "s/background: .*/background: $COLOR_BACKGROUND;/" $rofi_rasi
 sed -i "s/background-alt: .*/background-alt: $COLOR_BACKGROUND_ALT;/" $rofi_rasi
 sed -i "s/foreground: .*/foreground: $COLOR_FOREGROUND;/" $rofi_rasi
 sed -i "s/selected: .*/selected: $COLOR_PRIMARY;/" $rofi_rasi
@@ -69,13 +70,3 @@ sed -i "s/tertiary: .*/tertiary: $COLOR_TERTIARY;/" $rofi_rasi
 sed -i "s/disabled: .*/disabled: $COLOR_DISABLED;/" $rofi_rasi
 sed -i "s/active: .*/active: $COLOR_ACTIVE;/" $rofi_rasi
 sed -i "s/urgent: .*/urgent: $COLOR_URGENT;/" $rofi_rasi
-
-# dunst
-dunst_config="$HOME/.config/dunst/dunstrc"
-
-sed -i "s/background = .*/background = \"$COLOR_BACKGROUND\"/" $dunst_config
-sed -i "s/foreground = .*/foreground = \"$COLOR_FOREGROUND\"/" $dunst_config
-sed -i "s/frame_color = .*/frame_color = \"$COLOR_PRIMARY\"/" $dunst_config
-sed -i "s/highlight = .*/highlight = \"$COLOR_PRIMARY\"/" $dunst_config
-
-killall dunst

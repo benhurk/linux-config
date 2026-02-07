@@ -4,14 +4,22 @@ log() { echo -e "\033[1;32m[INFO]\033[0m $1"; }
 
 log "Installing core..."
 sudo apt install -y \
-  xorg xinput mesa-utils \
-  network-manager bluez pipewire-audio libnotify-bin \
-  zsh build-essential curl vim gh unzip pipx fastfetch \
-  kitty i3-wm picom polybar rofi feh lightdm slick-greeter dunst xsct flameshot
+  sway swaybg swayidle autotiling xwayland libnotify-bin lxpolkit \
+  xdg-desktop-portal-wlr network-manager bluez bluez-tools pipewire-audio build-essential \
+  zsh ripgrep curl wget pipx vim pamixer mesa-utils unzip jq slurp python3-venv \
+  waybar kitty rofi dunst gammastep fastfetch
 
+# wlprop (xprop alternative for wayland)
+curl -L https://gist.github.com/crispyricepc/f313386043395ff06570e02af2d9a8e0/raw/8b06f025a0f34685f5ffc2000fd19a64754c9b29/wlprop.sh >~/.local/bin/wlprop
+chmod +x ~/.local/bin/wlprop
+
+# enable services
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
-sudo systemctl enable lightdm
+
+# enable 32-bit libraries (required for some apps like steam)
+sudo dpkg --add-architecture i386
+sudo apt update
 
 log "Enabling flatpak..."
 sudo apt install -y flatpak

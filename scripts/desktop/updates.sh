@@ -5,14 +5,14 @@ log() { echo -e "\033[1;32m[$1]\033[0m"; }
 apt_updates=$(apt list --upgradable | grep "atualizável\|upgradable")
 flatpak_updates=$(flatpak remote-ls --updates)
 
-log "apt"
+log " apt"
 if [ ! -z "$apt_updates" ]; then
   echo -e "$apt_updates\n"
 else
   echo -e "Nenhuma atualização disponível\n"
 fi
 
-log "flatpak"
+log " Flatpak"
 if [ ! -z "$flatpak_updates" ]; then
   echo -e "$flatpak_updates\n"
 else
