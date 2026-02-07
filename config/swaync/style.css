@@ -1,0 +1,182 @@
+@define-color bg #141617;
+@define-color bg-alt #3c3836;
+@define-color fg #d4be98;
+@define-color primary #d8a657;
+@define-color secondary #e78a4e;
+@define-color tertiary #7daea3;
+@define-color disabled #7c6f64;
+@define-color active #a9b665;
+@define-color urgent #ea6962;
+
+* {
+  font-family: "JetBrainsMono Nerd Font Propo";
+  outline: none;
+  box-shadow: none;
+}
+
+.control-center {
+  background-color: @bg;
+  box-shadow: none;
+  border: 1px solid @bg-alt;
+  border-radius: 0px;
+  padding: 16px 12px;
+}
+
+.widget-buttons-grid,
+.widget-mpris,
+.widget-notifications,
+.widget-dnd {
+  color: @fg;
+  font-weight: 500;
+}
+
+.widget-buttons-grid {
+  background-color: transparent;
+  padding: 0 0 16px 0;
+  border-bottom: 1px solid @bg-alt;
+  border-radius: 0;
+  margin: 0 0 16px 0;
+}
+
+.widget-buttons-grid button {
+  background-color: @bg-alt;
+  border-radius: 16px;
+  border-color: @disabled;
+  font-size: 1rem;
+  padding: 2px 32px;
+  margin: 0px;
+}
+
+.widget-buttons-grid button:hover {
+  background-color: @primary;
+  border-color: @primary;
+  color: @bg;
+}
+
+.widget-buttons-grid button.toggle:checked {
+  color: @bg;
+  background-color: @primary;
+  border-color: @primary;
+}
+
+.widget-buttons-grid button.toggle:checked:hover {
+  background-color: @fg;
+  border-color: @fg;
+}
+
+.widget-mpris .widget-mpris-player {
+  border-radius: 16px;
+  margin: 0;
+}
+
+.widget-mpris .widget-mpris-player button {
+  background-color: alpha(@bg, 0.5);
+  color: @fg;
+  border: 1px solid @bg-alt;
+  opacity: 0.5;
+  transition: opacity 200ms ease-in-out;
+}
+
+.widget-mpris .widget-mpris-player button:hover {
+  opacity: 1;
+}
+
+.widget-dnd {
+  font-size: 1rem;
+  font-weight: 700;
+  background-color: alpha(@bg-alt, 0.35);
+  padding: 3px 12px;
+  border-radius: 16px;
+  margin: 0;
+}
+
+.widget-dnd switch {
+  background-color: @bg-alt;
+  border-color: @disabled;
+  border-radius: 16px;
+  margin: 0;
+}
+
+.widget-dnd switch slider {
+  background-color: @disabled;
+  border: none;
+}
+
+.widget-dnd switch:checked {
+  border-color: @primary;
+}
+
+.widget-dnd switch:checked slider {
+  background-color: @primary;
+}
+
+.notification {
+  padding: 8px 12px;
+  border-radius: 16px;
+  border: 1px solid @bg-alt;
+  color: @fg;
+  background-color: @bg;
+  margin: 0;
+}
+
+.notification-background {
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-content:hover {
+  background-color: transparent;
+}
+
+.notification-content {
+  background-color: @bg;
+  padding: 0;
+  margin: 0;
+}
+
+.notification-content * {
+  color: @fg;
+}
+
+.notification-content .time {
+  font-size: 1rem;
+  font-weight: 400;
+  color: @disabled;
+}
+
+.notification .summary {
+  padding: 0 4px;
+  margin-bottom: 6px;
+}
+
+.notification .body {
+  padding: 0 4px;
+  font-size: 1rem;
+}
+
+.notification-row {
+  margin: 0;
+}
+
+.notification-row:not(last-of-type) {
+  margin-bottom: 3px;
+}
+
+.notification-group {
+  margin: 0;
+}
+
+.notification-group-headers,
+.notification-group-buttons {
+  margin: 0 0 6px 0;
+}
+
+.notification-group-headers > label {
+  font-size: 1.125rem;
+  color: @fg;
+}
+
+.notification-group-icon {
+  color: @fg;
+}

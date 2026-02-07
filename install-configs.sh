@@ -15,17 +15,14 @@ link() {
   ln -sf "$src" "$dest"
 }
 
-log "Instalando ohmyzsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
 log "Criando links das configs e scripts..."
 
 link ~/.repo/config/sway ~/.config/sway
 link ~/.repo/config/waybar ~/.config/waybar
 link ~/.repo/config/rofi ~/.config/rofi
+link ~/.repo/config/swaync ~/.config/swaync
 link ~/.repo/config/kitty ~/.config/kitty
 link ~/.repo/config/nvim ~/.config/nvim
-link ~/.repo/config/dunst ~/.config/dunst
 link ~/.repo/config/gtk-3.0 ~/.config/gtk-3.0
 link ~/.repo/config/gtk-4.0 ~/.config/gtk-4.0
 link ~/.repo/config/themes ~/.config/themes
