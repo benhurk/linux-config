@@ -5,7 +5,7 @@ log() { echo -e "\033[1;32m[INFO]\033[0m $1"; }
 log "Installing core..."
 sudo apt install -y \
   sway swaybg swayidle autotiling xwayland libnotify-bin lxpolkit \
-  xdg-desktop-portal-wlr network-manager bluez bluez-tools pipewire-audio build-essential \
+  xdg-desktop-portal-wlr ufw network-manager bluez bluez-tools pipewire-audio build-essential \
   zsh ripgrep curl wget pipx vim pamixer mesa-utils unzip jq slurp python3-venv \
   waybar kitty rofi dunst gammastep fastfetch
 
@@ -17,6 +17,7 @@ chmod +x ~/.local/bin/wlprop
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # enable services
+sudo ufw enable
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 
