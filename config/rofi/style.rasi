@@ -1,0 +1,142 @@
+@import "./colorscheme.rasi"
+
+* {
+  font: "JetBrains Mono Nerd Font SemiBold 10";
+}
+
+/*****----- Main Window -----*****/
+window {
+    transparency:                "real";
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       420px;
+    height:                      540px;
+    x-offset:                    0px;
+    y-offset:                    0px;
+
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      1px solid;
+    border-radius:               0px;
+    border-color:                @secondary;
+    background-color:            @bg;
+    cursor:                      "default";
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     2px;
+    margin:                      0px;
+    padding:                     12px 8px;
+    border:                      0px solid;
+    border-radius:               0px 0px 0px 0px;
+    border-color:                @primary;
+    background-color:            transparent;
+    children:                    [ "inputbar", "listview" ];
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     12px;
+    margin:                      0 0 10px 0;
+    padding:                     10px 12px;
+    border:                      1px solid;
+    border-radius:               16px;
+    border-color:                @bg-contrast;
+    background-color:            @bg-alt;
+    text-color:                  @fg;
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+prompt {
+    enabled:                     false;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    
+    spacing:                     6px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @primary;
+    background-color:            transparent;
+    text-color:                  @fg;
+    cursor:                      "default";
+}
+scrollbar {
+    handle-width:                5px ;
+    handle-color:                @primary;
+    border-radius:               0px;
+    background-color:            @bg-alt;
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    margin:                      0px;
+    padding:                     10px 12px;
+    border:                      0px solid;
+    border-radius:               16px;
+    border-color:                @primary;
+    background-color:            transparent;
+    text-color:                  @fg;
+    cursor:                      pointer;
+}
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @fg;
+}
+element selected.normal {
+    text-color:                  @primary;
+    background-color:            @bg-alt;
+}
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        28px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    highlight:                   inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Message -----*****/
+error-message {
+    padding:                     15px;
+    border:                      1px solid;
+    border-radius:               12px;
+    border-color:                @urgent;
+    background-color:            @bg;
+    text-color:                  @fg;
+}
+textbox {
+    background-color:            @bg;
+    text-color:                  @fg;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+    highlight:                   none;
+}

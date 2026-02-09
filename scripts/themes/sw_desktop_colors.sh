@@ -58,15 +58,30 @@ sed -i "s/disabled #.*;/disabled $COLOR_DISABLED;/" $waybar_css
 sed -i "s/active #.*;/active $COLOR_ACTIVE;/" $waybar_css
 sed -i "s/urgent #.*;/urgent $COLOR_URGENT;/" $waybar_css
 
+# swaync
+swaync_css="$HOME/.config/swaync/style.css"
+
+sed -i "s/bg #.*;/bg $COLOR_BACKGROUND;/" $swaync_css
+sed -i "s/bg-alt #.*;/bg-alt $COLOR_BACKGROUND_ALT;/" $swaync_css
+sed -i "s/bg-contrast #.*;/bg-contrast $COLOR_BACKGROUND_CONTRAST;/" $swaync_css
+sed -i "s/fg #.*;/fg $COLOR_FOREGROUND;/" $swaync_css
+sed -i "s/primary #.*;/primary $COLOR_PRIMARY;/" $swaync_css
+sed -i "s/secondary #.*;/secondary $COLOR_SECONDARY;/" $swaync_css
+sed -i "s/tertiary #.*;/tertiary $COLOR_TERTIARY;/" $swaync_css
+sed -i "s/disabled #.*;/disabled $COLOR_DISABLED;/" $swaync_css
+sed -i "s/active #.*;/active $COLOR_ACTIVE;/" $swaync_css
+sed -i "s/urgent #.*;/urgent $COLOR_URGENT;/" $swaync_css
+
 # rofi
 rofi_rasi="$HOME/.config/rofi/colorscheme.rasi"
 
-sed -i "s/background: .*/background: $COLOR_BACKGROUND;/" $rofi_rasi
-sed -i "s/background-alt: .*/background-alt: $COLOR_BACKGROUND_ALT;/" $rofi_rasi
-sed -i "s/foreground: .*/foreground: $COLOR_FOREGROUND;/" $rofi_rasi
-sed -i "s/selected: .*/selected: $COLOR_PRIMARY;/" $rofi_rasi
-sed -i "s/secondary: .*/secondary: $COLOR_SECONDARY;/" $rofi_rasi
-sed -i "s/tertiary: .*/tertiary: $COLOR_TERTIARY;/" $rofi_rasi
-sed -i "s/disabled: .*/disabled: $COLOR_DISABLED;/" $rofi_rasi
-sed -i "s/active: .*/active: $COLOR_ACTIVE;/" $rofi_rasi
-sed -i "s/urgent: .*/urgent: $COLOR_URGENT;/" $rofi_rasi
+sed -i "s/\(bg: \)#.*;/\1$COLOR_BACKGROUND;/" $rofi_rasi
+sed -i "s/\(bg-alt: \)#.*;/\1$COLOR_BACKGROUND_ALT;/" $rofi_rasi
+sed -i "s/\(bg-contrast: \)#.*;/\1$COLOR_BACKGROUND_CONTRAST;/" $rofi_rasi
+sed -i "s/\(fg: \)#.*;/\1$COLOR_FOREGROUND;/" $rofi_rasi
+sed -i "s/\(primary: \)#.*;/\1$COLOR_PRIMARY;/" $rofi_rasi
+sed -i "s/\(secondary: \)#.*;/\1$COLOR_SECONDARY;/" $rofi_rasi
+sed -i "s/\(tertiary: \)#.*;/\1$COLOR_TERTIARY;/" $rofi_rasi
+sed -i "s/\(disabled: \)#.*;/\1$COLOR_DISABLED;/" $rofi_rasi
+sed -i "s/\(active: \)#.*;/\1 $COLOR_ACTIVE;/" $rofi_rasi
+sed -i "s/\(urgent: \)#.*;/\1$COLOR_URGENT;/" $rofi_rasi
