@@ -59,18 +59,18 @@
           "command": "swaync-client -cp; ~/.config/rofi/launcher/launcher.sh"
         },
         {
-          "label": "󰃝",
+          "label": "󰂯",
           "type": "toggle",
           "active": true,
-          "update-command": "~/scripts/desktop/toggle_night_light.sh check",
-          "command": "~/scripts/desktop/toggle_night_light.sh"
+          "update-command": "~/scripts/desktop/bluetooth.sh check",
+          "command": "~/scripts/desktop/bluetooth.sh toggle"
         },
         {
-          "label": "",
+          "label": "󰃝",
           "type": "toggle",
-          "active": true,
-          "update-command": "~/scripts/desktop/toggle_cpu_performance.sh check",
-          "command": "~/scripts/desktop/toggle_cpu_performance.sh"
+          "active": false,
+          "update-command": "~/scripts/desktop/night_light.sh check",
+          "command": "~/scripts/desktop/night_light.sh toggle"
         },
         {
           "label": "󰹑",
