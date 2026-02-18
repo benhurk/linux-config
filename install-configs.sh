@@ -3,16 +3,16 @@
 log() { echo -e "\033[1;32m[INFO]\033[0m $1"; }
 
 if [ ! -d "~/.config" ]; then
-  mkdir -p ~/.config
+    mkdir -p ~/.config
 fi
 
 link() {
-  local src=$1
-  local dest=$2
-  if [ -e "$dest" ] || [ -L "$dest" ]; then
-    rm -rf "$dest"
-  fi
-  ln -sf "$src" "$dest"
+    local src=$1
+    local dest=$2
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
+        rm -rf "$dest"
+    fi
+    ln -sf "$src" "$dest"
 }
 
 log "Criando links das configs e scripts..."
