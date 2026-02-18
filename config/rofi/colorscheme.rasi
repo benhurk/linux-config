@@ -1,12 +1,12 @@
 * {
-    bg: #1e2326;
-    bg-alt: #272e33;
-    bg-contrast: #3c4841;
-    fg: #d3c6aa;
-    primary: #a7c080;
-    secondary: #e69875;
-    tertiary: #d699b6;
-    disabled: #4f5b58;
+    bg: #181926;
+    bg-alt: #24273a;
+    bg-contrast: #494d64;
+    fg: #cad3f5;
+    primary: #c6a0f6;
+    secondary: #f5a97f;
+    tertiary: #7dc4e4;
+    disabled: #6e738d;
     active:  #7fbbb3;
-    urgent: #e67e80;
+    urgent: #ed8796;
 }

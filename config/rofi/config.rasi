@@ -27,7 +27,7 @@ icon-theme: "Papirus";
 /*	case-sensitive: false;*/
 /*	cycle: true;*/
 /*	sidebar-mode: false;*/
-hover-select: true;
+hover-select: false;
 /*	eh: 1;*/
 /*	auto-select: false;*/
 /*	parse-hosts: false;*/
@@ -103,7 +103,7 @@ hover-select: true;
 /*	kb-ellipsize: "Alt+period";*/
 /*	kb-toggle-case-sensitivity: "grave,dead_grave";*/
 /*	kb-toggle-sort: "Alt+grave";*/
-/*	kb-cancel: "Escape,Control+g,Control+bracketleft";*/
+kb-cancel: "MouseSecondary,Escape,Control+g,Control+bracketleft";
 /*	kb-custom-1: "Alt+1";*/
 /*	kb-custom-2: "Alt+2";*/
 /*	kb-custom-3: "Alt+3";*/
@@ -137,8 +137,8 @@ kb-select-10: "Ctrl+0";
 /*	ml-row-right: "ScrollRight";*/
 /*	ml-row-up: "ScrollUp";*/
 /*	ml-row-down: "ScrollDown";*/
-me-select-entry: "";
-me-accept-entry: "MousePrimary";
+me-select-entry: "MousePrimary";
+me-accept-entry: "MouseDPrimary";
 /*	me-accept-custom: "Control+MouseDPrimary";*/
   timeout {
       action: "kb-cancel";
