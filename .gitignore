@@ -1,2 +1,6 @@
 *.bak
 hicolor/
+config/gtk-3.0/colorscheme.css
+config/gtk-4.0/colorscheme.css
+config/kitty/current-theme.conf
+config/sway/wallpaper.conf
