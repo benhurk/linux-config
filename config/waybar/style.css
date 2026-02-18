@@ -22,7 +22,7 @@ window > box {
 
 tooltip {
   background-color: alpha(@bg, 0);
-  font-weight: 500;
+  font-weight: 600;
   box-shadow: none;
   padding: 0;
 }
@@ -89,7 +89,7 @@ tooltip label {
 }
 
 #pulseaudio {
-  color: @secondary;
+  color: @primary;
 }
 
 #pulseaudio.muted {
@@ -112,7 +112,7 @@ tooltip label {
 #window {
   color: @fg;
   transition: background-color 200ms ease-in-out;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 #window:hover {

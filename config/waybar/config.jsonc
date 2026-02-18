@@ -4,7 +4,7 @@
   "position": "top",
   "height": 28,
   "margin": "4 4 0 4",
-  "spacing": 32, // Gaps between modules
+  "spacing": 28, // Gaps between modules
   "fixed-center": true,
   "ipc": true,
   "reload_style_on_change": true,
@@ -12,9 +12,9 @@
   "modules-left": [
     "clock",
     "network",
-    "bluetooth",
     "pulseaudio",
     "power-profiles-daemon",
+    "bluetooth",
     "custom/updates",
     "tray",
   ],
@@ -46,8 +46,8 @@
   },
 
   "bluetooth": {
-    "format-on": "󰂯",
-    "format-off": "󰂲",
+    "format-on": "",
+    "format-off": "",
     "format-disabled": "",
     "format-connected": "󰂱",
     "format-connected-battery": "󰥉 {device_battery_percentage}",
@@ -55,17 +55,14 @@
     "tooltip-format-connected-battery": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-enumerate-connected-battery": "{device_alias} 󰥉 {device_battery_percentage}",
-    "on-click": "~/scripts/desktop/toggle_bluetooth.sh",
+    "on-click": "~/scripts/desktop/bluetooth.sh toggle",
     "on-click-right": "blueman-manager",
   },
 
   "pulseaudio": {
     "scroll-step": 5,
-    "format": "<span font='16px'>{icon}</span> <span rise='1000'>{volume}%</span>",
+    "format": "<span font='16px'>󰕾</span> <span rise='1000'>{volume}%</span>",
     "format-muted": "<span font='16px'>󰖁</span> <span rise='1000'>0%</span>",
-    "format-icons": {
-      "default": ["󰖀", "󰕾", "󰕾"],
-    },
     "tooltip": false,
     "on-click": "pamixer -t",
     "on-click-right": "pavucontrol",
@@ -77,7 +74,7 @@
     "tooltip": true,
     "format-icons": {
       "default": "",
-      "performance": "",
+      "performance": "",
       "balanced": "",
       "power-saver": "",
     },
@@ -85,7 +82,7 @@
 
   "sway/window": {
     "format": "{title}",
-    "max-length": 14,
+    "max-length": 20,
     "icon": false,
     "icon-size": 14,
     "rewrite": {
@@ -106,7 +103,7 @@
     "format-icons": {
       "1": "",
       "2": "",
-      "3": "󰈔",
+      "3": "󱧶",
       "4": "󰓓",
       "5": "󰐌",
       "default": "",
