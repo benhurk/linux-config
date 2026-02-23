@@ -59,11 +59,11 @@
           "command": "swaync-client -cp; ~/.config/rofi/launcher/launcher.sh"
         },
         {
-          "label": "󰂯",
+          "label": "󰢏",
           "type": "toggle",
-          "active": true,
-          "update-command": "~/scripts/desktop/bluetooth.sh check",
-          "command": "~/scripts/desktop/bluetooth.sh toggle"
+          "active": false,
+          "update-command": "~/scripts/desktop/vpn.sh check",
+          "command": "~/scripts/desktop/vpn.sh toggle"
         },
         {
           "label": "󰃝",
