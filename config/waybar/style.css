@@ -5,6 +5,7 @@
   padding: 0;
   border: none;
   border-radius: 0;
+  min-height: 0px;
   font-family: "JetBrainsMonoNL Nerd Font Propo";
 }
 
@@ -35,18 +36,20 @@ tooltip label {
   padding: 6px 16px;
 }
 
-#custom-menu,
 #clock,
 #network,
-#bluetooth,
 #pulseaudio,
-#workspaces,
-#tray,
+#power-profiles-daemon,
+#bluetooth,
 #custom-updates,
+#custom-todo,
+#tray,
+#workspaces,
+#window,
 #cpu,
 #memory,
 #temperature,
-#window {
+#custom-menu {
   font-weight: 700;
 }
 
@@ -72,22 +75,6 @@ tooltip label {
   color: @urgent;
 }
 
-#bluetooth {
-  font-size: 16px;
-}
-
-#bluetooth.on {
-  color: @primary;
-}
-
-#bluetooth.off {
-  color: @disabled;
-}
-
-#bluetooth.connected {
-  color: @active;
-}
-
 #pulseaudio {
   color: @primary;
 }
@@ -105,22 +92,46 @@ tooltip label {
   color: @disabled;
 }
 
+#bluetooth {
+  font-size: 16px;
+}
+
+#bluetooth.on {
+  color: @primary;
+}
+
+#bluetooth.off {
+  color: @disabled;
+}
+
+#bluetooth.connected {
+  color: @active;
+}
+
 #custom-updates {
   color: @tertiary;
 }
 
-#window {
-  color: @fg;
-  transition: background-color 200ms ease-in-out;
-  font-weight: 600;
+#custom-todo {
+  color: @tertiary;
 }
 
-#window:hover {
-  background-color: @bg-contrast;
+#tray menu {
+  padding: 4px;
+  background-color: @bg;
+  border: 1px solid @bg-contrast;
+  box-shadow: none;
 }
 
-window#waybar.empty #window:hover {
-  color: @fg;
+#tray menu menuitem {
+  padding: 3px 0;
+  font-size: 14px;
+  border-radius: 16px;
+  background-color: transparent;
+}
+
+#tray menu menuitem:hover {
+  color: @primary;
 }
 
 #workspaces {
@@ -150,22 +161,18 @@ window#waybar.empty #window:hover {
   color: @bg;
 }
 
-#tray menu {
-  padding: 4px;
-  background-color: @bg;
-  border: 1px solid @bg-contrast;
-  box-shadow: none;
+#window {
+  color: @fg;
+  transition: background-color 200ms ease-in-out;
+  font-weight: 600;
 }
 
-#tray menu menuitem {
-  padding: 3px 0;
-  font-size: 14px;
-  border-radius: 16px;
-  background-color: transparent;
+#window:hover {
+  background-color: @bg-contrast;
 }
 
-#tray menu menuitem:hover {
-  color: @primary;
+window#waybar.empty #window:hover {
+  color: @fg;
 }
 
 #cpu {

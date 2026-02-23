@@ -2,7 +2,6 @@
 {
   // "layer": "top", // Waybar at top layer
   "position": "top",
-  "height": 28,
   "margin": "4 4 0 4",
   "spacing": 28, // Gaps between modules
   "fixed-center": true,
@@ -16,11 +15,12 @@
     "power-profiles-daemon",
     "bluetooth",
     "custom/updates",
-    "tray",
+    "custom/todo",
   ],
   "modules-center": ["sway/workspaces"],
   "modules-right": [
     "sway/window",
+    "tray",
     "cpu",
     "memory",
     "temperature",
@@ -164,4 +164,15 @@
     "tooltip": false,
     "on-click": "kitty --class=KittyFloating --hold -e ~/scripts/desktop/updates.sh",
   },
+
+  "custom/todo": {
+     "exec": "~/.config/waybar/scripts/todo.sh",
+     "interval": 5,
+     "return-type": "json",
+     "signal": 9,
+     "format": "󱍧",
+     "tooltip-format": "{}",
+     "on-click": "kitty --class=KittyFloating --hold -e todo -h",
+     "on-click-right": "todo -r current && pkill -RTMIN+9 waybar"
+  }
 }
