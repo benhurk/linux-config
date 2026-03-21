@@ -5,8 +5,8 @@ if ! todo &>/dev/null; then
     exit 1
 fi
 
-current_task=$(todo -c)
+current_task=$(todo current)
 
 if [ -n "$current_task" ]; then
-    echo "{ \"text\": \"$current_task\", \"tooltip\": \"$current_task\" }"
+    echo "{ \"text\": \"$current_task\" }"
 fi

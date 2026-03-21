@@ -1,7 +1,7 @@
 @import "./colorscheme.rasi"
 
 * {
-  font: "JetBrains Mono Nerd Font SemiBold 10";
+  font: "JetBrains Mono Nerd Font Propo SemiBold 10";
 }
 
 /*****----- Main Window -----*****/
@@ -10,7 +10,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       420px;
+    width:                       440px;
     height:                      540px;
     x-offset:                    0px;
     y-offset:                    0px;
@@ -20,7 +20,7 @@ window {
     padding:                     0px;
     border:                      1px solid;
     border-radius:               0px;
-    border-color:                @secondary;
+    border-color:                @bg-contrast;
     background-color:            @bg;
     cursor:                      "default";
 }
@@ -35,10 +35,9 @@ mainbox {
     border-radius:               0px 0px 0px 0px;
     border-color:                @primary;
     background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
+    children:                    [ "inputbar", "message", "listview" ];
 }
 
-/*****----- Inputbar -----*****/
 inputbar {
     enabled:                     true;
     spacing:                     12px;
@@ -52,8 +51,35 @@ inputbar {
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
 
+message {
+    enabled:                     true;
+    spacing:                     12px;
+    margin:                      0 0 10px 0;
+    padding:                     10px 12px;
+    border:                      0px solid;
+    border-radius:               16px;
+    border-color:                @disabled;
+    background-color:            transparent;
+    text-color:                  @primary;
+}
+
 prompt {
     enabled:                     false;
+}
+
+textbox-prompt-colon {
+    enabled:                     true;
+    expand:                      false;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      text;
+    placeholder-color:           @disabled;
 }
 
 /*****----- Listview -----*****/
@@ -106,6 +132,19 @@ element normal.normal {
 element selected.normal {
     text-color:                  @primary;
     background-color:            @bg-alt;
+}
+
+element normal.active {
+   text-color:                   @active;
+}
+
+element alternate.active {
+   text-color:                   @active;
+}
+
+element selected.active {
+   text-color:                   @active;
+   background-color:             @bg-alt;
 }
 
 element-icon {

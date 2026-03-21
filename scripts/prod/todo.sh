@@ -5,6 +5,11 @@ list_file="$dir/list.txt"
 current_task_file="$dir/current.txt"
 cmd=$(basename "$0")
 
+if ! fzf --version >/dev/null; then
+    echo "Error: fzf not found. Is it installed?"
+    exit 1
+fi
+
 if [ ! -d "$dir" ]; then
     mkdir -p "$dir"
 fi
@@ -18,17 +23,28 @@ if [ ! -f "$current_task_file" ]; then
 fi
 
 print_usage() {
-    echo -e "Usage: $cmd <option>\n"
-    echo -e "Option                       Effect\n"
-    echo "-l                           print list"
-    echo "-c                           print current task"
-    echo "-s <index>                   set current task"
-    echo "-a <string>                  add task"
-    echo "-r <index>|all|current       remove task"
+    echo "add <option?>                add new task"
+    echo -e "     --set                   set the added task as current\n"
+    echo -e "current                      print current task\n"
+    echo "ls <option?>                 print list"
+    echo -e "     --no-index              ommit the index numbers\n"
+    echo "rm <option?>                 remove task"
+    echo "     --current               remove current"
+    echo "     --all                   remove all"
+    echo -e "     --index                 choose by index\n"
+    echo "set <option?>                set current task"
+    echo "     --last                  set the last added task"
+    echo -e "     --index                 choose by index"
 }
 
 list() {
-    cat -n "$list_file"
+    if [ -z "$1" ]; then
+        cat -b "$list_file"
+    elif [ "$1" == "--no-index" ]; then
+        cat "$list_file"
+    else
+        echo "Option \"$1\" doesn't exist." && exit 1
+    fi
 }
 
 print_current() {
@@ -36,73 +52,81 @@ print_current() {
 }
 
 set_current() {
-    if [ -z "$1" ]; then
-        echo "Usage: $cmd -s <index>"
-        exit 1
+    by_index() {
+        to_set=$(sed "${1}!d" "$list_file" 2>/dev/null)
+
+        if [ -z "$1" ] || [ -z "$to_set" ]; then
+            echo "Invalid index." && exit 1
+        fi
+    }
+
+    case "$1" in
+        "--index") by_index "$2" ;;
+        "--last") to_set=$(tail -1 "$list_file") ;;
+        "") to_set=$(list --no-index | fzf) ;;
+        *) echo "Option \"$1\" doesn't exist." && exit 1 ;;
+    esac
+
+    if [ -n "$to_set" ]; then
+        echo "$to_set" > "$current_task_file"
+        echo "New current task: \"$to_set\""
     fi
-
-    to_set=$(sed "${1}!d" "$list_file")
-
-    echo "$to_set" > "$current_task_file"
-    echo "\"$to_set\" set as current task."
 }
 
 add() {
-    if [ -z "$1" ]; then
-        echo "Usage: $cmd -a <task>"
-        exit 1
+    task=$(read -r str; echo $str)
+
+    if [ -n "$task" ]; then
+        echo "$task" >> "$list_file"
+
+        if [ -z "$(print_current)" ] || [[ "$1" == "--set" ]]; then
+            echo "$task" > "$current_task_file"
+        fi
+
+        echo "New task added: \"$task\""
     fi
-
-    echo "$*" >> "$list_file"
-
-    if [ -z "$(cat "$current_task_file")" ]; then
-        echo "$*" > "$current_task_file"
-    fi
-
-    echo "\"$*\" added to the list."
 }
 
 remove() {
-    if [ -z "$1" ]; then
-        echo "Usage: $cmd -r <index>|all|current"
-        exit 1
-    fi
-
-    if [ "$1" == "all" ]; then
+    all() {
         :> "$list_file"
         :> "$current_task_file"
-        echo "List cleared."
-        exit
-    fi
+        echo "List cleared." && exit
+    }
 
-    if [ "$1" == "current" ]; then
-        sed -i "/^$(print_current)$/d" "$list_file"
-        echo "\"$(print_current)\" cleared."
+    by_index() {
+        to_remove=$(sed "${1}!d" "$list_file" 2>/dev/null)
 
-        if [ -n "$(cat "$list_file")" ]; then
-            set_current 1
-        else
-            :> "$current_task_file"
+        if [ -z "$1" ] || [ -z "$to_remove" ]; then
+            echo "Invalid index." && exit 1
         fi
+    }
 
-        exit
-    fi
-
-    to_remove=$(sed "${1}!d" "$list_file")
+    case "$1" in
+        "--all") all ;;
+        "--current") to_remove=$(print_current) ;;
+        "--index") by_index "$2" ;;
+        "") to_remove=$(list --no-index | fzf) ;;
+        *) echo "Option \"$1\" doesn't exist." && exit 1 ;;
+    esac
 
     if [ -n "$to_remove" ]; then
-        sed -i "${1}d" "$list_file"
-        echo "\"$to_remove\" removed from the list."
-    else
-        echo "Index $1 doesn't exist."
+        sed -i "/^$to_remove$/d" "$list_file"
+
+        if [[ "$to_remove" == $(print_current) ]]; then
+            last_added=$(tail -1 "$list_file")
+            echo "$last_added" > "$current_task_file"
+        fi
+
+        echo "Task removed: \"$to_remove\"."
     fi
 }
 
 case "$1" in
-    "-a") add "${@:2}" ;;
-    "-l") list ;;
-    "-c") print_current ;;
-    "-s") set_current "${@:2}" ;;
-    "-r") remove "${@:2}" ;;
+    "add") add "${@:2}" ;;
+    "current") print_current ;;
+    "ls") list "${@:2}" ;;
+    "rm") remove "${@:2}" ;;
+    "set") set_current "${@:2}" ;;
     *) print_usage ;;
 esac

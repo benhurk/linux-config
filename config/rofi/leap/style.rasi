@@ -1,0 +1,8 @@
+@import "../style.rasi"
+
+textbox-prompt-colon {
+    str:                         "󰘍";
+}
+entry {
+    placeholder:                 "Leap to";
+}

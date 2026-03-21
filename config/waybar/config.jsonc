@@ -3,7 +3,7 @@
   // "layer": "top", // Waybar at top layer
   "position": "top",
   "margin": "4 4 0 4",
-  "spacing": 28, // Gaps between modules
+  "spacing": 32, // Gaps between modules
   "fixed-center": true,
   "ipc": true,
   "reload_style_on_change": true,
@@ -12,14 +12,12 @@
     "clock",
     "network",
     "pulseaudio",
-    "power-profiles-daemon",
     "bluetooth",
     "custom/updates",
     "custom/todo",
   ],
   "modules-center": ["sway/workspaces"],
   "modules-right": [
-    "sway/window",
     "tray",
     "cpu",
     "memory",
@@ -55,7 +53,7 @@
     "tooltip-format-connected-battery": "{device_enumerate}",
     "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-enumerate-connected-battery": "{device_alias} 󰥉 {device_battery_percentage}",
-    "on-click": "~/scripts/desktop/bluetooth.sh toggle",
+    "on-click": "blueman-manager",
     "on-click-right": "blueman-manager",
   },
 
@@ -80,32 +78,22 @@
     },
   },
 
-  "sway/window": {
-    "format": "{title}",
-    "max-length": 20,
-    "icon": false,
-    "icon-size": 14,
-    "rewrite": {
-      "": "~",
-      "(.*):~": "~",
-      "(.*) — Zen Browser": "$1",
-      "(.*) - Thunar": "$1",
-      "qBittorrent (.*)": "qBittorrent",
-    },
-    "on-click-right": "swaymsg kill",
-  },
-
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": false,
     "disable-auto-back-and-forth": true,
-    "format": "{icon} {name}",
+    "format": "{icon}",
     "format-icons": {
       "1": "",
       "2": "",
       "3": "󱧶",
       "4": "󰓓",
       "5": "󰐌",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
       "default": "",
     },
     "persistent-workspaces": {
@@ -169,10 +157,10 @@
      "exec": "~/.config/waybar/scripts/todo.sh",
      "interval": 5,
      "return-type": "json",
-     "signal": 9,
+     "signal": 2,
      "format": "󱍧",
      "tooltip-format": "{}",
-     "on-click": "kitty --class=KittyFloating --hold -e todo -h",
-     "on-click-right": "todo -r current && pkill -RTMIN+9 waybar"
+     "on-click": "~/.config/rofi/todo/todo.sh; pkill -RTMIN+2 waybar",
+     "on-click-right": "todo rm --current; pkill -RTMIN+2 waybar"
   }
 }

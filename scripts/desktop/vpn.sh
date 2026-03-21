@@ -25,11 +25,12 @@ toggle() {
 
         if [ -z "$to_connect" ]; then
             echo "Error: No wireguard connection available."
+            notify-send -i error "Erro ao conectar VPN" "Nenhuma conexão disponível"
             exit 1
         fi
 
         nmcli connection up "$to_connect"
-        notify-send -i network-vpn "VPN" "Conectado"
+        notify-send -i network-vpn "VPN" "Conectado | $to_connect"
 
     fi
 }

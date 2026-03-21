@@ -1,6 +1,6 @@
-default-wallpaper-dark=~/Imagens/wallpapers/nostalgia_mixtape.jpg
-default-wallpaper-light=~/Imagens/wallpapers/flowers_field.png
+default-wallpaper-dark=~/Imagens/wallpapers/pink_skyline.png
+default-wallpaper-light=~/Imagens/wallpapers/snow_mountains_lake.png
 folders-dark=cat-macchiato-mauve
 folders-light=cat-latte-lavender
 kitty-theme=Catppuccin-Macchiato
-neovim-theme=catppuccin
+nvim-theme=catppuccin-macchiato

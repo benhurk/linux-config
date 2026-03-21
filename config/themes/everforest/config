@@ -3,4 +3,4 @@ default-wallpaper-light=~/Imagens/wallpapers/irizakatou_fields.jpg
 folders-dark=gruvbox-original-aqua
 folders-light=gruvbox-original-aqua
 kitty-theme=Everforest\ Dark\ Hard
-neovim-theme=everforest
+nvim-theme=everforest

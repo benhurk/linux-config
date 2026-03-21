@@ -36,6 +36,7 @@ sway_config="$HOME/.config/sway/colors.conf"
 
 sed -i "s/^\(set \$color_background \).*/\1$COLOR_BACKGROUND/" $sway_config
 sed -i "s/^\(set \$color_background_alt \).*/\1$COLOR_BACKGROUND_ALT/" $sway_config
+sed -i "s/^\(set \$color_background_contrast \).*/\1$COLOR_BACKGROUND_CONTRAST/" $sway_config
 sed -i "s/^\(set \$color_foreground \).*/\1$COLOR_FOREGROUND/" $sway_config
 sed -i "s/^\(set \$color_primary \).*/\1$COLOR_PRIMARY/" $sway_config
 sed -i "s/^\(set \$color_secondary \).*/\1$COLOR_SECONDARY/" $sway_config
@@ -71,6 +72,8 @@ sed -i "s/tertiary #.*;/tertiary $COLOR_TERTIARY;/" $swaync_css
 sed -i "s/disabled #.*;/disabled $COLOR_DISABLED;/" $swaync_css
 sed -i "s/active #.*;/active $COLOR_ACTIVE;/" $swaync_css
 sed -i "s/urgent #.*;/urgent $COLOR_URGENT;/" $swaync_css
+
+swaync-client -rs
 
 # rofi
 rofi_rasi="$HOME/.config/rofi/colorscheme.rasi"

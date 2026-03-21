@@ -156,7 +156,7 @@ tooltip label {
 
 #workspaces button.focused {
   font-size: 14px;
-  min-width: 54px;
+  min-width: 52px;
   background-color: @primary;
   color: @bg;
 }

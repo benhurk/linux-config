@@ -1,5 +1,15 @@
 @import "colorscheme.css";
 
+.titlebar,
 window {
-  border-radius: 0px;
+	border-radius: 0;
+	box-shadow: none;
+}
+
+decoration {
+	box-shadow: none;
+}
+
+decoration:backdrop {
+	box-shadow: none;
 }

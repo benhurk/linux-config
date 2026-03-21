@@ -27,10 +27,10 @@
   "hide-on-clear": false,
   "hide-on-action": false,
   "script-fail-notify": true,
-  "widgets": ["buttons-grid", "mpris", "notifications", "dnd"],
+  "widgets": ["buttons-grid", "notifications", "dnd"],
   "widget-config": {
     "dnd": {
-      "text": "󰪑 Silencioso"
+      "text": " 󰪑 Silencioso"
     },
     "mpris": {
       "image-size": 96,
@@ -63,7 +63,7 @@
           "type": "toggle",
           "active": false,
           "update-command": "~/scripts/desktop/vpn.sh check",
-          "command": "~/scripts/desktop/vpn.sh toggle"
+          "command": "/opt/Mullvad\ VPN/mullvad-vpn"
         },
         {
           "label": "󰃝",

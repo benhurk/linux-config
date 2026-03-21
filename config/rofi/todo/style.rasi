@@ -1,0 +1,13 @@
+@import "../style.rasi"
+
+window {
+   width: 640px;
+}
+
+textbox-prompt-colon {
+    str: "";
+}
+
+entry {
+   placeholder: "Set current task";
+}
