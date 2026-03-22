@@ -108,14 +108,6 @@ tooltip label {
   color: @active;
 }
 
-#custom-updates {
-  color: @tertiary;
-}
-
-#custom-todo {
-  color: @tertiary;
-}
-
 #tray menu {
   padding: 4px;
   background-color: @bg;
@@ -139,6 +131,7 @@ tooltip label {
 }
 
 #workspaces button {
+  font-family: "Symbols Nerd Font Mono";
   background-color: transparent;
   border-radius: 16px;
   font-size: 11px;
@@ -197,6 +190,26 @@ window#waybar.empty #window:hover {
 
 #temperature.critical {
   color: @urgent;
+}
+
+#custom-updates {
+  color: @tertiary;
+}
+
+#custom-todo {
+  color: @tertiary;
+}
+
+#custom-wireguard {
+   font-size: 16px;
+}
+
+#custom-wireguard.connected {
+   color: @active;
+}
+
+#custom-wireguard.disconnected {
+   color: @disabled;
 }
 
 #custom-menu {

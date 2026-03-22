@@ -153,6 +153,13 @@
     "on-click": "kitty --class=KittyFloating --hold -e ~/scripts/desktop/updates.sh",
   },
 
+  "custom/wireguard": {
+      "exec": "~/.config/waybar/scripts/wireguard.sh",
+      "interval": 2,
+      "return-type": "json",
+      "format": "{text}"
+  },
+
   "custom/todo": {
      "exec": "~/.config/waybar/scripts/todo.sh",
      "interval": 5,
