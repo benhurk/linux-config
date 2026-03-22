@@ -59,13 +59,6 @@
           "command": "swaync-client -cp; ~/.config/rofi/launcher/launcher.sh"
         },
         {
-          "label": "󰢏",
-          "type": "toggle",
-          "active": false,
-          "update-command": "~/scripts/desktop/vpn.sh check",
-          "command": "/opt/Mullvad\ VPN/mullvad-vpn"
-        },
-        {
           "label": "󰃝",
           "type": "toggle",
           "active": false,
