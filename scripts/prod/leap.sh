@@ -14,12 +14,12 @@ fi
 
 print_usage() {
     echo -e "Usage: $cmd <option>\n"
-    echo "add <command?>                     add a leap to the current directory."
-    echo -e "                                   <command> is the command to run after leaping, it is optional, if blank it will default to a 'ls'.\n"
+    echo "add '<command?>'                   add a leap to the current directory."
+    echo -e "                                   <command> is the command to run after leaping, if blank it will default to a 'ls'.\n"
 
-    echo "to                                 run fzf to select a directory to leap to"
-    echo "rm                                 run fzf to remove a leap"
-    echo "ls                                 prints available leaps"
+    echo "to                                 fzf select a directory to leap to"
+    echo "rm                                 fzf select a leap to remove"
+    echo "ls                                 print available leaps"
 }
 
 format_dir() {
