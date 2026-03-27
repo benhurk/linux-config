@@ -2,7 +2,6 @@
 
 dir="$HOME/.local/share/todo"
 list_file="$dir/list.txt"
-current_task_file="$dir/current.txt"
 cmd=$(basename "$0")
 
 if ! fzf --version >/dev/null; then
@@ -18,22 +17,19 @@ if [ ! -f "$list_file" ]; then
     touch "$list_file"
 fi
 
-if [ ! -f "$current_task_file" ]; then
-    touch "$current_task_file"
-fi
-
 print_usage() {
     echo "add <option?>                add new task"
     echo -e "     --set                   set the added task as current\n"
     echo -e "current                      print current task\n"
     echo "ls <option?>                 print list"
     echo -e "     --no-index              ommit the index numbers\n"
-    echo "rm <option?>                 remove task"
+    echo "rm <option?>                 remove task (uses fzf by default)"
     echo "     --current               remove current"
     echo "     --all                   remove all"
-    echo -e "     --index                 choose by index\n"
-    echo "set <option?>                set current task"
-    echo "     --last                  set the last added task"
+    echo -e "     --index                 remove by index\n"
+    echo "set <option?>                set current task (uses fzf by default)"
+    echo "     --next                  choose the next relative to the current task's index"
+    echo "     --prev                  choose the previous relative to the current task's index"
     echo -e "     --index                 choose by index"
 }
 
@@ -48,7 +44,7 @@ list() {
 }
 
 print_current() {
-    cat "$current_task_file"
+    head -n 1 "$list_file"
 }
 
 set_current() {
@@ -60,15 +56,25 @@ set_current() {
         fi
     }
 
+    next() {
+        to_set=$(sed "2!d" "$list_file" 2>/dev/null)
+
+        current=$(print_current)
+        sed -i "/^$current$/d" "$list_file"
+        echo "$current" >> "$list_file"
+    }
+
     case "$1" in
         "--index") by_index "$2" ;;
-        "--last") to_set=$(tail -1 "$list_file") ;;
-        "") to_set=$(list --no-index | fzf) ;;
+        "--next") next ;;
+        "--prev") to_set=$(tail -n 1 "$list_file") ;;
+        "") to_set=$(list --no-index | fzf --cycle) ;;
         *) echo "Option \"$1\" doesn't exist." && exit 1 ;;
     esac
 
     if [ -n "$to_set" ]; then
-        echo "$to_set" > "$current_task_file"
+        sed -i "/^$to_set$/d" "$list_file"
+        sed -i "1 i\\$to_set" "$list_file"
         echo "New current task: \"$to_set\""
     fi
 }
@@ -79,8 +85,8 @@ add() {
     if [ -n "$task" ]; then
         echo "$task" >> "$list_file"
 
-        if [ -z "$(print_current)" ] || [[ "$1" == "--set" ]]; then
-            echo "$task" > "$current_task_file"
+        if [[ "$1" == "--set" ]]; then
+            sed -i "1 i\\$task" "$list_file"
         fi
 
         echo "New task added: \"$task\""
@@ -90,7 +96,6 @@ add() {
 remove() {
     all() {
         :> "$list_file"
-        :> "$current_task_file"
         echo "List cleared." && exit
     }
 
@@ -106,18 +111,12 @@ remove() {
         "--all") all ;;
         "--current") to_remove=$(print_current) ;;
         "--index") by_index "$2" ;;
-        "") to_remove=$(list --no-index | fzf) ;;
+        "") to_remove=$(list --no-index | fzf --cycle) ;;
         *) echo "Option \"$1\" doesn't exist." && exit 1 ;;
     esac
 
     if [ -n "$to_remove" ]; then
         sed -i "/^$to_remove$/d" "$list_file"
-
-        if [[ "$to_remove" == $(print_current) ]]; then
-            last_added=$(tail -1 "$list_file")
-            echo "$last_added" > "$current_task_file"
-        fi
-
         echo "Task removed: \"$to_remove\"."
     fi
 }
