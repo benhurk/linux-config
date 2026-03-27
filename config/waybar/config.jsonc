@@ -30,6 +30,7 @@
     "format": " {:%H:%M}",
     "tooltip-format": "󰃭 {:%A - %d/%m/%Y}",
     "locale": "pt_BR.utf8",
+    "timezone": "America/Sao_Paulo"
   },
 
   "network": {
@@ -166,8 +167,9 @@
      "return-type": "json",
      "signal": 2,
      "format": "󱍧",
-     "tooltip-format": "{}",
-     "on-click": "~/.config/rofi/todo/todo.sh; pkill -RTMIN+2 waybar",
-     "on-click-right": "todo rm --current; pkill -RTMIN+2 waybar"
+     "tooltip-format": "\r<b> {text}</b>\r\r{alt}",
+     "on-click": "todo set --next; pkill -RTMIN+2 waybar",
+     "on-click-right": "todo set --prev; pkill -RTMIN+2 waybar",
+     "on-click-middle": "todo rm --current; pkill -RTMIN+2 waybar"
   }
 }
