@@ -23,7 +23,6 @@ window > box {
 
 tooltip {
   background-color: alpha(@bg, 0);
-  font-weight: 600;
   box-shadow: none;
   padding: 0;
 }
@@ -33,6 +32,7 @@ tooltip label {
   border: 1px solid @bg-contrast;
   border-radius: 4px;
   color: @fg;
+  font-weight: 700;
   padding: 6px 16px;
 }
 
@@ -54,12 +54,14 @@ tooltip label {
 }
 
 #clock,
+#mpris,
 #workspaces,
 #window,
 #tray {
   background-color: @bg-alt;
-  border-radius: 16px;
-  padding: 0px 14px;
+  border: 1px solid @bg-contrast;
+   border-radius: 16px;
+  padding: 0px 10px;
 }
 
 #clock {
@@ -81,6 +83,18 @@ tooltip label {
 
 #pulseaudio.muted {
   color: @disabled;
+}
+
+#mpris {
+   color: @fg;
+}
+
+#mpris.playing {
+   color: @fg;
+}
+
+#mpris.paused {
+   color: @disabled;
 }
 
 #power-profiles-daemon.performance,
@@ -127,15 +141,12 @@ tooltip label {
 }
 
 #workspaces {
-  padding: 0 1px;
+  padding: 0;
 }
 
 #workspaces button {
-  font-family: "Symbols Nerd Font Mono";
   background-color: transparent;
-  border-radius: 16px;
-  font-size: 11px;
-  min-width: 48px;
+  margin: 0 16px;
   color: @fg;
 }
 
@@ -148,10 +159,7 @@ tooltip label {
 }
 
 #workspaces button.focused {
-  font-size: 14px;
-  min-width: 52px;
-  background-color: @primary;
-  color: @bg;
+  color: @primary;
 }
 
 #window {
@@ -215,8 +223,8 @@ window#waybar.empty #window:hover {
 #custom-menu {
   color: @bg;
   background-color: @fg;
-  padding: 0 14px;
-  border-radius: 9999px;
+  padding: 0 12px;
+  border-radius: 16px;
   transition: all 200ms ease-in-out;
 }
 

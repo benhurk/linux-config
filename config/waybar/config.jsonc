@@ -15,6 +15,7 @@
     "bluetooth",
     "custom/updates",
     "custom/todo",
+    "mpris"
   ],
   "modules-center": ["sway/workspaces"],
   "modules-right": [
@@ -66,6 +67,16 @@
     "on-click": "pamixer -t",
     "on-click-right": "pavucontrol",
   },
+
+  "mpris": {
+	   "format": "{status_icon} <i>{title}</i>",
+	   "format-paused": "{status_icon} <i>{title}</i>",
+      "title-len": 24,
+	   "status-icons": {
+         "playing": "",
+		   "paused": ""
+	   }
+   },
 
   "power-profiles-daemon": {
     "format": "{icon}",
