@@ -1,0 +1,13 @@
+// https://github.com/Alexays/Waybar/wiki/Module:-Memory
+
+{
+  "memory": {
+    "format": " {used:0.1f}GB",
+    "states": {
+      "warning": 70
+    },
+    "interval": 5,
+    "tooltip": false,
+    "on-click": "xdg-terminal-exec -e btop"
+  }
+}

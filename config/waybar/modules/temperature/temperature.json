@@ -1,0 +1,12 @@
+// https://github.com/Alexays/Waybar/wiki/Module:-Temperature
+
+{
+  "temperature": {
+    "thermal-zone": 0,
+    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "critical-threshold": 70,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["", "", ""],
+    "tooltip": false
+  }
+}

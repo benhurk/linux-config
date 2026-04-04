@@ -1,0 +1,7 @@
+#pulseaudio {
+  color: @primary;
+}
+
+#pulseaudio.muted {
+  color: @disabled;
+}

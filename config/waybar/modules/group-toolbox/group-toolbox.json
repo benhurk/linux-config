@@ -1,0 +1,15 @@
+{
+  "custom/toolbox-icon": {
+    "format": "",
+    "tooltip": false
+  },
+
+  "group/toolbox": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "drawer-group-item"
+    },
+    "modules": ["custom/toolbox-icon", "custom/todo"]
+  }
+}

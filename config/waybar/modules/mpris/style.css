@@ -1,0 +1,20 @@
+#mpris {
+  color: @fg;
+  background-color: @bg-alt;
+  border: 1px solid @bg-contrast;
+  border-radius: 16px;
+  padding: 0px 10px;
+  font-weight: 600;
+}
+
+#mpris.playing {
+  color: @fg;
+}
+
+#mpris.paused {
+  color: @disabled;
+}
+
+#mpris.stopped {
+  color: @urgent;
+}

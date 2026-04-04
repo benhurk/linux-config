@@ -1,0 +1,14 @@
+// https://github.com/Alexays/Waybar/wiki/Module:-Network
+
+{
+  "network": {
+    "format-wifi": "{icon}",
+    "format-ethernet": "",
+    "format-disconnected": "󰤮",
+    "format-icons": ["󰤫", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}",
+    "tooltip-format-disconnected": "Offline",
+    "on-click-right": "nm-connection-editor"
+  }
+}

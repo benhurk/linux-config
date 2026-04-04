@@ -1,0 +1,8 @@
+// https://github.com/Alexays/Waybar/wiki/Module:-Tray
+
+{
+  "tray": {
+    "icon-size": 16,
+    "spacing": 14
+  }
+}

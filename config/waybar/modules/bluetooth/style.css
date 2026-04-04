@@ -1,0 +1,15 @@
+#bluetooth {
+  font-size: 16px;
+}
+
+#bluetooth.on {
+  color: @primary;
+}
+
+#bluetooth.off {
+  color: @disabled;
+}
+
+#bluetooth.connected {
+  color: @active;
+}

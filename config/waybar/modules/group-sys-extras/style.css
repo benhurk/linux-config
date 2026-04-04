@@ -1,0 +1,10 @@
+#sys-extras {
+  background-color: @bg-alt;
+  border: 1px solid @bg-contrast;
+  border-radius: 16px;
+  padding: 0px 10px;
+}
+
+#sys-extras .drawer-group-item > * {
+  margin-right: 18px;
+}

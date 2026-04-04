@@ -1,0 +1,9 @@
+{
+  "custom/updates": {
+    "exec": "~/.config/waybar/scripts/updates.sh",
+    "interval": 3600,
+    "signal": 1,
+    "tooltip": false,
+    "on-click": "xdg-terminal-exec --class=KittyFloating --hold -e ~/scripts/desktop/updates.sh"
+  }
+}

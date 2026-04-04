@@ -1,0 +1,8 @@
+#power-profiles-daemon.performance,
+#power-profiles-daemon.power-saver {
+  color: @active;
+}
+
+#power-profiles-daemon.balanced {
+  color: @disabled;
+}

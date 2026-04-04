@@ -1,0 +1,8 @@
+#network {
+  color: @active;
+  font-family: "Symbols Nerd Font Mono";
+}
+
+#network.disconnected {
+  color: @urgent;
+}

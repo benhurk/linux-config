@@ -1,0 +1,7 @@
+#cpu {
+  color: @primary;
+}
+
+#cpu.warning {
+  color: @urgent;
+}

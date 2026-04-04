@@ -1,0 +1,13 @@
+// https://github.com/Alexays/Waybar/wiki/Module:-Group
+
+{
+  "group/sys-extras": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "drawer-group-item",
+      "transition-left-to-right": false
+    },
+    "modules": ["custom/expand-icon-left", "power-profiles-daemon", "tray"]
+  }
+}

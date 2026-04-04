@@ -1,4 +1,22 @@
 @import "colors.css";
+@import "./modules/clock/style.css";
+@import "./modules/network/style.css";
+@import "./modules/bluetooth/style.css";
+@import "./modules/pulseaudio/style.css";
+@import "./modules/mpris/style.css";
+@import "./modules/custom-updates/style.css";
+@import "./modules/group-toolbox/style.css";
+@import "./modules/workspaces/style.css";
+@import "./modules/group-sys-extras/style.css";
+@import "./modules/tray/style.css";
+@import "./modules/power-profiles-daemon/style.css";
+@import "./modules/cpu/style.css";
+@import "./modules/memory/style.css";
+@import "./modules/temperature/style.css";
+@import "./modules/custom-menu/style.css";
+@import "./modules/custom-todo/style.css";
+@import "./modules/custom-expand-icon-left/style.css";
+@import "./modules/custom-expand-icon-right/style.css";
 
 * {
   margin: 0;
@@ -7,11 +25,12 @@
   border-radius: 0;
   min-height: 0px;
   font-family: "JetBrainsMonoNL Nerd Font Propo";
+  font-weight: 700;
+  font-size: 14px;
 }
 
 window#waybar {
   background-color: transparent;
-  font-size: 14px;
 }
 
 window > box {
@@ -30,205 +49,8 @@ tooltip {
 tooltip label {
   background-color: alpha(@bg, 0.95);
   border: 1px solid @bg-contrast;
-  border-radius: 4px;
+  border-radius: 0px;
   color: @fg;
   font-weight: 700;
   padding: 6px 16px;
-}
-
-#clock,
-#network,
-#pulseaudio,
-#power-profiles-daemon,
-#bluetooth,
-#custom-updates,
-#custom-todo,
-#tray,
-#workspaces,
-#window,
-#cpu,
-#memory,
-#temperature,
-#custom-menu {
-  font-weight: 700;
-}
-
-#clock,
-#mpris,
-#workspaces,
-#window,
-#tray {
-  background-color: @bg-alt;
-  border: 1px solid @bg-contrast;
-   border-radius: 16px;
-  padding: 0px 10px;
-}
-
-#clock {
-  color: @fg;
-}
-
-#network {
-  color: @active;
-  font-family: "Symbols Nerd Font Mono";
-}
-
-#network.disconnected {
-  color: @urgent;
-}
-
-#pulseaudio {
-  color: @primary;
-}
-
-#pulseaudio.muted {
-  color: @disabled;
-}
-
-#mpris {
-   color: @fg;
-}
-
-#mpris.playing {
-   color: @fg;
-}
-
-#mpris.paused {
-   color: @disabled;
-}
-
-#power-profiles-daemon.performance,
-#power-profiles-daemon.power-saver {
-  color: @active;
-}
-
-#power-profiles-daemon.balanced {
-  color: @disabled;
-}
-
-#bluetooth {
-  font-size: 16px;
-}
-
-#bluetooth.on {
-  color: @primary;
-}
-
-#bluetooth.off {
-  color: @disabled;
-}
-
-#bluetooth.connected {
-  color: @active;
-}
-
-#tray menu {
-  padding: 4px;
-  background-color: @bg;
-  border: 1px solid @bg-contrast;
-  box-shadow: none;
-}
-
-#tray menu menuitem {
-  padding: 3px 0;
-  font-size: 14px;
-  border-radius: 16px;
-  background-color: transparent;
-}
-
-#tray menu menuitem:hover {
-  color: @primary;
-}
-
-#workspaces {
-  padding: 0;
-}
-
-#workspaces button {
-  background-color: transparent;
-  margin: 0 16px;
-  color: @fg;
-}
-
-#workspaces button.persistent {
-  color: @disabled;
-}
-
-#workspaces button:hover {
-  color: @primary;
-}
-
-#workspaces button.focused {
-  color: @primary;
-}
-
-#window {
-  color: @fg;
-  transition: background-color 200ms ease-in-out;
-  font-weight: 600;
-}
-
-#window:hover {
-  background-color: @bg-contrast;
-}
-
-window#waybar.empty #window:hover {
-  color: @fg;
-}
-
-#cpu {
-  color: @primary;
-}
-
-#memory {
-  color: @secondary;
-}
-
-#temperature {
-  color: @tertiary;
-}
-
-#cpu.warning {
-  color: @urgent;
-}
-
-#memory.warning {
-  color: @urgent;
-}
-
-#temperature.critical {
-  color: @urgent;
-}
-
-#custom-updates {
-  color: @tertiary;
-}
-
-#custom-todo {
-  color: @tertiary;
-}
-
-#custom-wireguard {
-   font-size: 16px;
-}
-
-#custom-wireguard.connected {
-   color: @active;
-}
-
-#custom-wireguard.disconnected {
-   color: @disabled;
-}
-
-#custom-menu {
-  color: @bg;
-  background-color: @fg;
-  padding: 0 12px;
-  border-radius: 16px;
-  transition: all 200ms ease-in-out;
-}
-
-#custom-menu:hover {
-  background-color: @primary;
-  color: @bg;
 }

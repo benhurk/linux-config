@@ -1,0 +1,7 @@
+#temperature {
+  color: @tertiary;
+}
+
+#temperature.critical {
+  color: @urgent;
+}

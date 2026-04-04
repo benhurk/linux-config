@@ -1,0 +1,25 @@
+#workspaces {
+  padding: 0;
+  background-color: @bg-alt;
+  border: 1px solid @bg-contrast;
+  border-radius: 16px;
+}
+
+#workspaces button {
+  background-color: transparent;
+  margin: 0 16px;
+  font-size: 13px;
+  color: @fg;
+}
+
+#workspaces button.persistent {
+  color: @disabled;
+}
+
+#workspaces button:hover {
+  color: @primary;
+}
+
+#workspaces button.focused {
+  color: @primary;
+}

@@ -1,0 +1,8 @@
+{
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "󰃭 {:%A - %d/%m/%Y}",
+    "locale": "pt_BR.utf8",
+    "timezone": "America/Sao_Paulo"
+  }
+}

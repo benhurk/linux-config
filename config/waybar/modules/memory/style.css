@@ -1,0 +1,7 @@
+#memory {
+  color: @secondary;
+}
+
+#memory.warning {
+  color: @urgent;
+}

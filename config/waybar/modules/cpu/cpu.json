@@ -1,0 +1,13 @@
+// https://github.com/Alexays/Waybar/wiki/Module:-CPU
+
+{
+  "cpu": {
+    "format": " {usage}%",
+    "states": {
+      "warning": 50
+    },
+    "interval": 5,
+    "tooltip": false,
+    "on-click": "xdg-terminal-exec -e btop"
+  }
+}
